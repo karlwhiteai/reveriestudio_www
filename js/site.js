@@ -157,7 +157,7 @@
       side = $('#storySide'), sw = $('#mediaSwitch'), meta = $('#mediaMeta');
     let mode = 'image', story = null;
 
-    function setMode(m, byUser) {
+    function setMode(m) {
       mode = m === 'video' && story.video ? 'video' : 'image';
       [...sw.children].forEach((b) => {
         b.hidden = b.dataset.m === 'video' && !story.video;
@@ -166,7 +166,7 @@
       if (mode === 'video') {
         pic.hidden = true;
         vid.hidden = false;
-        if (byUser && !reduce) vid.play().catch(() => {});
+        if (reduce) vid.controls = true; else vid.play().catch(() => {});
         meta.textContent = 'Video · 10 s · made in ' + dur(secs(story.video));
       } else {
         vid.pause();
@@ -255,7 +255,7 @@
     });
     sw.addEventListener('click', (e) => {
       const b = e.target.closest('button');
-      if (b && !b.hidden) setMode(b.dataset.m, true);
+      if (b && !b.hidden) setMode(b.dataset.m);
     });
     pick(0);
   })();
@@ -298,7 +298,7 @@
         pVid.hidden = true;
         pPic.hidden = false;
         pPic.textContent = '';
-        [...itemPicture(it, 'small', true).children].forEach((c) => pPic.appendChild(c));
+        [...itemPicture(it, 'full', true).children].forEach((c) => pPic.appendChild(c));
       }
       if (scroll && wide.matches) {
         const r = preview.getBoundingClientRect();
