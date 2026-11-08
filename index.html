@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reverie Studio: voice, music, images and video, made on your Mac</title>
+<meta name="description" content="Reverie Studio makes speech, music, images and video entirely on your Mac. Private, offline, no subscription.">
+<meta name="version" content="1.0.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#121214">
+<link rel="canonical" href="https://reveriestudio.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Reverie Studio">
+<meta property="og:title" content="Reverie Studio: voice, music, images and video, made on your Mac">
+<meta property="og:description" content="Reverie Studio makes speech, music, images and video entirely on your Mac. Private, offline, no subscription.">
+<meta property="og:url" content="https://reveriestudio.app/">
+<meta property="og:image" content="https://reveriestudio.app/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://reveriestudio.app/img/og.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-italic-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<svg class="sprite" aria-hidden="true">
+  <defs>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 12c2.5-5 5-5 7.5 0s5 5 7.5 0 3.5-3.5 5-2"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><path d="M12 18v4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol>
+    <symbol id="i-captions" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="M7 10.5h4"/><path d="M13 10.5h4"/><path d="M7 14.5h6"/><path d="M15 14.5h2"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L7 20"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9.5 2.5V6M14.5 2.5V6M9.5 18v3.5M14.5 18v3.5M2.5 9.5H6M2.5 14.5H6M18 9.5h3.5M18 14.5h3.5"/></symbol>
+    <symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M8.6 16.2a5 5 0 0 1 6.3-.4"/><path d="M5.2 12.6a10 10 0 0 1 4.1-2.3"/><path d="M13.6 9.9a10 10 0 0 1 5.2 2.7"/><path d="M2 9a15 15 0 0 1 4.2-2.6"/><path d="M10.6 5.1A15 15 0 0 1 22 9"/><path d="M12 20h.01"/></symbol>
+    <symbol id="i-noaccount" viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M2.5 21c0-4 3.4-6.5 7.5-6.5 1.4 0 2.7.3 3.8.8"/><path d="m16.5 16 5 5M21.5 16l-5 5"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11.5 12 4.5l8 7"/><path d="M6.5 10v9.5h11V10"/><path d="M10 19.5v-5h4v5"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-4.5 3.5V17.5H4a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z"/><path d="M8 10h8M8 13.5h5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="m13.5 4-3 16"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+    <symbol id="i-wand" viewBox="0 0 24 24"><path d="M5 19 15.5 8.5M14 5l1 2 2 1-2 1-1 2-1-2-2-1 2-1zM19 11l.6 1.4L21 13l-1.4.6L19 15l-.6-1.4L17 13l1.4-.6z"/></symbol>
+    <symbol id="lg-ha" viewBox="0 0 24 24"><path d="M22.939 10.627 13.061.749a1.505 1.505 0 0 0-2.121 0l-9.879 9.878C.478 11.21 0 12.363 0 13.187v9c0 .826.675 1.5 1.5 1.5h9.227l-4.063-4.062a2.034 2.034 0 0 1-.664.113c-1.13 0-2.05-.92-2.05-2.05s.92-2.05 2.05-2.05 2.05.92 2.05 2.05c0 .233-.041.456-.113.665l3.163 3.163V9.928a2.05 2.05 0 0 1-1.15-1.84c0-1.13.92-2.05 2.05-2.05s2.05.92 2.05 2.05a2.05 2.05 0 0 1-1.15 1.84v8.127l3.146-3.146A2.051 2.051 0 0 1 18 12.239c1.13 0 2.05.92 2.05 2.05s-.92 2.05-2.05 2.05c-.25 0-.488-.047-.709-.13L12.9 20.602v3.088h9.6c.825 0 1.5-.675 1.5-1.5v-9c0-.825-.477-1.977-1.061-2.561z"/></symbol>
+    <symbol id="lg-tailscale" viewBox="0 0 24 24"><path d="M24 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-9 9a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm0-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6-6a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM3 24a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm18 .5a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM6 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm9-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 2.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM3 5.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></symbol>
+    <symbol id="lg-ollama" viewBox="0 0 24 24"><path d="M16.361 10.26a.894.894 0 0 0-.558.47l-.072.148.001.207c0 .193.004.217.059.353.076.193.152.312.291.448.24.238.51.3.872.205a.86.86 0 0 0 .517-.436.752.752 0 0 0 .08-.498c-.064-.453-.33-.782-.724-.897a1.06 1.06 0 0 0-.466 0zm-9.203.005c-.305.096-.533.32-.65.639a1.187 1.187 0 0 0-.06.52c.057.309.31.59.598.667.362.095.632.033.872-.205.14-.136.215-.255.291-.448.055-.136.059-.16.059-.353l.001-.207-.072-.148a.894.894 0 0 0-.565-.472 1.02 1.02 0 0 0-.474.007Zm4.184 2c-.131.071-.223.25-.195.383.031.143.157.288.353.407.105.063.112.072.117.136.004.038-.01.146-.029.243-.02.094-.036.194-.036.222.002.074.07.195.143.253.064.052.076.054.255.059.164.005.198.001.264-.03.169-.082.212-.234.15-.525-.052-.243-.042-.28.087-.355.137-.08.281-.219.324-.314a.365.365 0 0 0-.175-.48.394.394 0 0 0-.181-.033c-.126 0-.207.03-.355.124l-.085.053-.053-.032c-.219-.13-.259-.145-.391-.143a.396.396 0 0 0-.193.032zm.39-2.195c-.373.036-.475.05-.654.086-.291.06-.68.195-.951.328-.94.46-1.589 1.226-1.787 2.114-.04.176-.045.234-.045.53 0 .294.005.357.043.524.264 1.16 1.332 2.017 2.714 2.173.3.033 1.596.033 1.896 0 1.11-.125 2.064-.727 2.493-1.571.114-.226.169-.372.22-.602.039-.167.044-.23.044-.523 0-.297-.005-.355-.045-.531-.288-1.29-1.539-2.304-3.072-2.497a6.873 6.873 0 0 0-.855-.031zm.645.937a3.283 3.283 0 0 1 1.44.514c.223.148.537.458.671.662.166.251.26.508.303.82.02.143.01.251-.043.482-.08.345-.332.705-.672.957a3.115 3.115 0 0 1-.689.348c-.382.122-.632.144-1.525.138-.582-.006-.686-.01-.853-.042-.57-.107-1.022-.334-1.35-.68-.264-.28-.385-.535-.45-.946-.03-.192.025-.509.137-.776.136-.326.488-.73.836-.963.403-.269.934-.46 1.422-.512.187-.02.586-.02.773-.002zm-5.503-11a1.653 1.653 0 0 0-.683.298C5.617.74 5.173 1.666 4.985 2.819c-.07.436-.119 1.04-.119 1.503 0 .544.064 1.24.155 1.721.02.107.031.202.023.208a8.12 8.12 0 0 1-.187.152 5.324 5.324 0 0 0-.949 1.02 5.49 5.49 0 0 0-.94 2.339 6.625 6.625 0 0 0-.023 1.357c.091.78.325 1.438.727 2.04l.13.195-.037.064c-.269.452-.498 1.105-.605 1.732-.084.496-.095.629-.095 1.294 0 .67.009.803.088 1.266.095.555.288 1.143.503 1.534.071.128.243.393.264.407.007.003-.014.067-.046.141a7.405 7.405 0 0 0-.548 1.873c-.062.417-.071.552-.071.991 0 .56.031.832.148 1.279L3.42 24h1.478l-.05-.091c-.297-.552-.325-1.575-.068-2.597.117-.472.25-.819.498-1.296l.148-.29v-.177c0-.165-.003-.184-.057-.293a.915.915 0 0 0-.194-.25 1.74 1.74 0 0 1-.385-.543c-.424-.92-.506-2.286-.208-3.451.124-.486.329-.918.544-1.154a.787.787 0 0 0 .223-.531c0-.195-.07-.355-.224-.522a3.136 3.136 0 0 1-.817-1.729c-.14-.96.114-2.005.69-2.834.563-.814 1.353-1.336 2.237-1.475.199-.033.57-.028.776.01.226.04.367.028.512-.041.179-.085.268-.19.374-.431.093-.215.165-.333.36-.576.234-.29.46-.489.822-.729.413-.27.884-.467 1.352-.561.17-.035.25-.04.569-.04.319 0 .398.005.569.04a4.07 4.07 0 0 1 1.914.997c.117.109.398.457.488.602.034.057.095.177.132.267.105.241.195.346.374.43.14.068.286.082.503.045.343-.058.607-.053.943.016 1.144.23 2.14 1.173 2.581 2.437.385 1.108.276 2.267-.296 3.153-.097.15-.193.27-.333.419-.301.322-.301.722-.001 1.053.493.539.801 1.866.708 3.036-.062.772-.26 1.463-.533 1.854a2.096 2.096 0 0 1-.224.258.916.916 0 0 0-.194.25c-.054.109-.057.128-.057.293v.178l.148.29c.248.476.38.823.498 1.295.253 1.008.231 2.01-.059 2.581a.845.845 0 0 0-.044.098c0 .006.329.009.732.009h.73l.02-.074.036-.134c.019-.076.057-.3.088-.516.029-.217.029-1.016 0-1.258-.11-.875-.295-1.57-.597-2.226-.032-.074-.053-.138-.046-.141.008-.005.057-.074.108-.152.376-.569.607-1.284.724-2.228.031-.26.031-1.378 0-1.628-.083-.645-.182-1.082-.348-1.525a6.083 6.083 0 0 0-.329-.7l-.038-.064.131-.194c.402-.604.636-1.262.727-2.04a6.625 6.625 0 0 0-.024-1.358 5.512 5.512 0 0 0-.939-2.339 5.325 5.325 0 0 0-.95-1.02 8.097 8.097 0 0 1-.186-.152.692.692 0 0 1 .023-.208c.208-1.087.201-2.443-.017-3.503-.19-.924-.535-1.658-.98-2.082-.354-.338-.716-.482-1.15-.455-.996.059-1.8 1.205-2.116 3.01a6.805 6.805 0 0 0-.097.726c0 .036-.007.066-.015.066a.96.96 0 0 1-.149-.078A4.857 4.857 0 0 0 12 3.03c-.832 0-1.687.243-2.456.698a.958.958 0 0 1-.148.078c-.008 0-.015-.03-.015-.066a6.71 6.71 0 0 0-.097-.725C8.997 1.392 8.337.319 7.46.048a2.096 2.096 0 0 0-.585-.041Zm.293 1.402c.248.197.523.759.682 1.388.03.113.06.244.069.292.007.047.026.152.041.233.067.365.098.76.102 1.24l.002.475-.12.175-.118.178h-.278c-.324 0-.646.041-.954.124l-.238.06c-.033.007-.038-.003-.057-.144a8.438 8.438 0 0 1 .016-2.323c.124-.788.413-1.501.696-1.711.067-.05.079-.049.157.013zm9.825-.012c.17.126.358.46.498.888.28.854.36 2.028.212 3.145-.019.14-.024.151-.057.144l-.238-.06a3.693 3.693 0 0 0-.954-.124h-.278l-.119-.178-.119-.175.002-.474c.004-.669.066-1.19.214-1.772.157-.623.434-1.185.68-1.382.078-.062.09-.063.159-.012z"/></symbol>
+    <symbol id="lg-node" viewBox="0 0 24 24"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></symbol>
+    <symbol id="lg-python" viewBox="0 0 24 24"><path d="M11.858 0c-.978.005-1.913.088-2.736.234C6.7.662 6.26 1.558 6.26 3.21v2.182h5.725v.727H4.111c-1.664 0-3.121 1-3.577 2.903-.526 2.181-.549 3.542 0 5.82.407 1.694 1.379 2.902 3.043 2.902h1.969v-2.616c0-1.89 1.635-3.557 3.576-3.557h5.72c1.591 0 2.862-1.31 2.862-2.91v-5.45c0-1.553-1.309-2.718-2.863-2.977A18 18 0 0 0 11.858 0M8.762 1.755c.591 0 1.074.491 1.074 1.095 0 .601-.483 1.087-1.074 1.087A1.08 1.08 0 0 1 7.688 2.85c0-.604.48-1.095 1.074-1.095m9.656 4.364v2.543c0 1.971-1.671 3.63-3.577 3.63H9.122c-1.566 0-2.862 1.34-2.862 2.91v5.452c0 1.551 1.349 2.464 2.862 2.91 1.813.532 3.55.628 5.72 0 1.44-.418 2.862-1.258 2.862-2.91V18.47h-5.719v-.727h8.582c1.664 0 2.284-1.16 2.862-2.903.598-1.793.573-3.518 0-5.819-.41-1.656-1.196-2.903-2.862-2.903zm-3.216 13.807a1.08 1.08 0 0 1 1.074 1.088c0 .604-.48 1.094-1.074 1.094-.592 0-1.075-.49-1.075-1.094 0-.601.483-1.088 1.075-1.088"/></symbol>
+    <symbol id="lg-curl" viewBox="0 0 24 24"><path d="M.803 14.8169c0-.5342.433-.9665.9665-.9665.5335 0 .9665.4323.9665.9665 0 .5335-.433.9657-.9665.9657-.5335 0-.9666-.4322-.9666-.9657m2.736 0c0-.1963-.0532-.376-.1119-.5525-.2344-.7024-.876-1.2169-1.6575-1.2169-.1249 0-.2344.0465-.3524.0708C.6149 13.2865 0 13.9646 0 14.817c0 .9764.7923 1.7694 1.7695 1.7694.9772 0 1.7694-.793 1.7694-1.7694m-1.7694-7.149c.5335 0 .9665.433.9665.9665 0 .5335-.433.9665-.9665.9665-.5343 0-.9666-.433-.9666-.9665 0-.5335.4323-.9665.9666-.9665m0 2.7359c.9772 0 1.7694-.7923 1.7694-1.7694 0-.1956-.0532-.376-.1119-.5525-.2344-.7024-.8767-1.2169-1.6575-1.2169-.1249 0-.2344.0465-.3524.0716C.6149 7.104 0 7.782 0 8.6344c0 .9771.7923 1.7694 1.7695 1.7694m13.221-5.694c-.5342 0-.9665-.433-.9665-.9664a.966.966 0 01.9666-.9665c.5335 0 .9658.4322.9658.9665 0 .5334-.4323.9664-.9658.9664m-9.6 16.5133c-.5335 0-.9666-.433-.9666-.9665 0-.5342.433-.9665.9666-.9665a.966.966 0 01.9665.9665c0 .5335-.4323.9665-.9665.9665m9.6-19.2491c-.978 0-1.7695.7922-1.7695 1.7694 0 .2085.0525.4025.1187.5882L5.039 18.5581c-.803.1681-1.4179.8462-1.4179 1.6985 0 .9772.7923 1.7694 1.7695 1.7694.9772 0 1.7694-.7922 1.7694-1.7694 0-.1963-.0525-.3759-.111-.5525l8.3427-14.2728c.7778-.1865 1.3683-.8531 1.3683-1.688 0-.977-.793-1.7693-1.7694-1.7693m7.24 2.7359c-.5343 0-.9666-.433-.9666-.9665a.966.966 0 01.9665-.9665c.5335 0 .9666.4322.9666.9665 0 .5334-.433.9665-.9666.9665M12.6313 21.223c-.5343 0-.9665-.433-.9665-.9665a.966.966 0 01.9665-.9665c.5335 0 .9658.4323.9658.9665 0 .5335-.4323.9665-.9658.9665M22.2305 1.974c-.9772 0-1.7694.7922-1.7694 1.7694 0 .2085.0525.4025.1187.5882l-8.3009 14.2265c-.8021.1681-1.417.8462-1.417 1.6985 0 .9772.7922 1.7694 1.7694 1.7694.9764 0 1.7687-.7922 1.7687-1.7694 0-.1963-.0525-.3759-.1111-.5525l8.3427-14.2728C23.4094 5.2448 24 4.5782 24 3.7433c0-.977-.7923-1.7693-1.7695-1.7693"/></symbol>
+    <symbol id="lg-omlx" viewBox="0 0 497 497"><g transform="translate(0.000000,497.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"> <path d="M2275 4349 c-408 -39 -769 -207 -1056 -492 -196 -194 -333 -428 -418 -715 -47 -158 -67 -281 -101 -617 -66 -662 -116 -944 -245 -1387 -102 -352 -271 -774 -420 -1051 -19 -35 -35 -70 -35 -76 0 -8 50 -11 163 -11 l164 0 80 168 c168 348 303 739 408 1175 73 307 109 532 155 982 52 500 72 627 122 785 162 507 570 860 1096 951 155 26 389 26 544 0 221 -38 440 -129 620 -258 45 -32 152 -126 237 -209 86 -82 178 -165 204 -183 106 -72 312 -150 495 -186 l32 -7 -86 -54 c-110 -69 -170 -117 -267 -212 -93 -91 -143 -154 -191 -243 -105 -191 -130 -406 -75 -623 29 -115 81 -239 217 -516 234 -480 343 -769 411 -1091 36 -172 48 -252 57 -381 l7 -98 158 0 158 0 -4 28 c-2 15 -6 66 -9 113 -14 218 -95 560 -201 849 -81 220 -165 407 -363 810 -120 245 -147 320 -161 443 -38 338 202 621 766 906 131 65 166 126 106 183 -33 31 -86 47 -288 88 -177 36 -274 61 -370 97 -140 52 -190 88 -377 270 -140 137 -202 189 -300 254 -378 250 -782 351 -1233 308z M3050 3391 c-57 -11 -122 -53 -154 -99 -41 -57 -49 -158 -18 -218 29 -56 66 -92 120 -117 153 -69 323 37 325 203 1 147 -131 259 -273 231z M1985 1391 c-68 -31 -70 -40 -66 -271 1 -114 -2 -243 -9 -290 -40 -307 -124 -555 -255 -754 -25 -38 -45 -71 -45 -72 0 -2 79 -4 176 -4 l175 0 54 113 c117 247 182 512 201 812 7 126 -9 319 -32 374 -26 63 -86 111 -136 111 -13 0 -41 -9 -63 -19z"/> </g></symbol>
+    <symbol id="lg-star8" viewBox="0 0 24 24"><path d="M12.00 2.00 L13.65 8.03 L19.07 4.93 L15.97 10.35 L22.00 12.00 L15.97 13.65 L19.07 19.07 L13.65 15.97 L12.00 22.00 L10.35 15.97 L4.93 19.07 L8.03 13.65 L2.00 12.00 L8.03 10.35 L4.93 4.93 L10.35 8.03 Z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 8a4 4 0 0 1 8 0"/><path d="M8 10V8M16 10V8"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4.5" width="4.2" height="15" rx="1.2"/><rect x="13.8" y="4.5" width="4.2" height="15" rx="1.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg>Reverie Studio</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#private">Private</a></li>
+        <li><a href="#mac">Your Mac</a></li>
+        <li><a href="#connections">Connections</a></li>
+      </ul>
+    </nav>
+    <a class="btn primary sm" href="mailto:hello@reveriestudio.app">Get notified</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="aurora">Your Mac is a studio for <span class="g g1">voice</span>, <span class="g g2">music</span>, <span class="g g3">images</span> and <span class="g g4">video</span>.</h1>
+        <p class="lead">Fully local AI media. Everything is made on your Mac, by your Mac. No cloud, no account, no per-use fees.</p>
+        <div class="ctas">
+          <a class="btn primary" href="mailto:hello@reveriestudio.app">Get notified</a>
+          <a class="btn" href="#examples">See what it makes</a>
+        </div>
+        <div class="listen">
+          <div class="player" id="heroPlayer"></div>
+          <span>Hear a voice made on a Mac in under two seconds</span>
+        </div>
+      </div>
+      <div class="stage-hero">
+        <div class="glow" aria-hidden="true"><picture id="glowImg"><source type="image/webp" srcset="media/ui/home-glow.webp" sizes="100vw"><img src="media/ui/home-glow.jpg" alt="" fetchpriority="low" decoding="async"></picture></div>
+        <div class="laptop">
+          <div class="lid">
+            <div class="screen" id="heroScreen" data-ctl="dots" role="img" aria-label="Reverie Studio on a Mac laptop">
+              <picture  class="on" data-label="Home" data-cap="Say what you want to make, or start from a sample." data-glow-webp="media/ui/home-glow.webp" data-glow-jpg="media/ui/home-glow.jpg"><source type="image/webp" srcset="media/ui/home-800.webp 800w, media/ui/home-1440.webp 1440w, media/ui/home.webp 2880w" sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1104px) calc((100vw - 64px) * 0.95), 994px"><img src="media/ui/home-1440.jpg" alt="Reverie Studio's Home screen" loading="eager"></picture>
+              <picture data-label="Text to Image" data-cap="Your prompt floats over everything you have made." data-glow-webp="media/ui/visual-glow.webp" data-glow-jpg="media/ui/visual-glow.jpg"><source type="image/webp" srcset="media/ui/visual-800.webp 800w, media/ui/visual-1440.webp 1440w, media/ui/visual.webp 2880w" sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1104px) calc((100vw - 64px) * 0.95), 994px"><img src="media/ui/visual-1440.jpg" alt="Reverie Studio's Image and Video screen" loading="lazy"></picture>
+              <picture data-label="Text to Music" data-cap="A style and lyrics become a full song." data-glow-webp="media/ui/music-glow.webp" data-glow-jpg="media/ui/music-glow.jpg"><source type="image/webp" srcset="media/ui/music-800.webp 800w, media/ui/music-1440.webp 1440w, media/ui/music.webp 2880w" sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1104px) calc((100vw - 64px) * 0.95), 994px"><img src="media/ui/music-1440.jpg" alt="Reverie Studio's Music screen" loading="lazy"></picture>
+              <picture data-label="Detail page" data-cap="Every result keeps the prompt and settings that made it." data-glow-webp="media/ui/detail-glow.webp" data-glow-jpg="media/ui/detail-glow.jpg"><source type="image/webp" srcset="media/ui/detail-800.webp 800w, media/ui/detail-1440.webp 1440w, media/ui/detail.webp 2880w" sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1104px) calc((100vw - 64px) * 0.95), 994px"><img src="media/ui/detail-1440.jpg" alt="A Reverie Studio detail page" loading="lazy"></picture>
+            </div>
+          </div>
+          <div class="base"></div>
+          <div class="shadow"></div>
+        </div>
+        <div class="carousel-ctl"><div class="dots" id="heroDots" role="group" aria-label="Screens"></div></div>
+        <p class="screen-cap" id="heroCap" aria-live="polite"></p>
+      </div>
+      <div class="facts gap3">
+        <span class="fact"><svg class="icon" aria-hidden="true"><use href="#i-chip"/></svg>Apple silicon</span>
+        <span class="fact"><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg>macOS 26</span>
+        <span class="fact"><svg class="icon" aria-hidden="true"><use href="#i-offline"/></svg>Works offline</span>
+        <span class="fact"><svg class="icon" aria-hidden="true"><use href="#i-noaccount"/></svg>No account</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="promises" aria-label="Three promises">
+    <div class="wrap">
+      <h2 class="visually-hidden">Three promises</h2>
+      <div class="promises">
+        <div class="promise">
+          <svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg>
+          <h3>Made on your Mac</h3>
+          <p>Every voice, song, image and video is generated on your own machine. Nothing is sent away to be made.</p>
+        </div>
+        <div class="promise">
+          <svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg>
+          <h3>You already own the hardware</h3>
+          <p>Apple silicon has the memory and graphics to do this. Use what you paid for, without subscriptions or credits.</p>
+        </div>
+        <div class="promise">
+          <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+          <h3>Private by design</h3>
+          <p>Nothing you type, record or make leaves your Mac. It works offline once your models are in place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="examples" aria-labelledby="examples-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Examples</span>
+        <h2 id="examples-title">One idea, every medium.</h2>
+        <p>Each story below began as a few words of text and became a picture, a moving shot, a song and a voice, all on one Mac.</p>
+      </div>
+      <div class="chips" id="storyChips" role="group" aria-label="Stories"></div>
+      <div class="story">
+        <div class="story-media" id="storyMedia">
+          <picture id="storyPicture"><source type="image/webp" srcset="media/img/8392d2326e21-800.webp 800w, media/img/8392d2326e21-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 32px), 1136px"><img src="media/img/8392d2326e21-1600.jpg" alt="Drifting lights"></picture>
+          <video id="storyVid" muted loop playsinline preload="none"></video>
+          <div class="media-switch" id="mediaSwitch" role="group" aria-label="Show">
+            <button type="button" data-m="image" aria-pressed="true">Picture</button>
+            <button type="button" data-m="video" aria-pressed="false">Moving</button>
+          </div>
+          <span class="media-meta" id="mediaMeta"></span>
+        </div>
+        <div class="story-side" id="storySide"></div>
+      </div>
+
+      <div class="head more-head"><h2>More examples</h2></div>
+      <div class="gpreview" id="gPreview" aria-live="polite">
+        <div class="gp-media">
+          <picture id="gpPicture" hidden><source type="image/webp" srcset="media/vid/da41d2535383-poster.webp"><img src="media/vid/da41d2535383-poster.jpg" alt="Where the sea glows" loading="lazy"></picture>
+          <video id="gpVid" muted loop playsinline preload="none" hidden></video>
+          <span class="badge" id="gpBadge">VIDEO</span>
+          <span class="media-meta" id="gpMeta">10 s video · made in about 9 minutes on a Mac Studio</span>
+        </div>
+        <div class="gp-cap">
+          <h3 id="gpTitle">Where the sea glows</h3>
+          <p class="prompt" id="gpPrompt">A woman in a dark wool coat stands ankle-deep in the surf on a black-sand beach at blue hour, in the right third of the frame, and every wave that breaks around her feet glows vibrant and bright HDR electric blue. Photoreal cinematic footage. Tiny motes of the same vibrant HDR blue light lift off the water and rise slowly into the air around her like rain falling upward. She slowly raises one open hand and a few motes drift toward it and hover over her palm, lighting her face softly from below. Tall sea stacks stand in the mist behind her, and the left side is calm dark sea and soft mist. The camera dollies in slowly at waist height. Deep blue dusk, cold mist, natural skin texture, shallow depth of field, film grain. Gentle surf and a low, airy hum.</p>
+          <button class="linkbtn" type="button" id="gpMore">Show the full prompt</button>
+        </div>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <section class="block" id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Features</span>
+        <h2 id="features-title">Everything in one studio.</h2>
+        <p>Eight tools that start from words or a recording, and one library that keeps all of it.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><h3>Text to Speech</h3><p>Turn writing into natural speech, with built-in voices.</p></div>
+        <div class="feature"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><h3>Your own voice</h3><p>Clone a voice from a short recording, or train one from your own clips.</p></div>
+        <div class="feature"><svg class="icon" aria-hidden="true"><use href="#i-captions"/></svg><h3>Speech to Text</h3><p>Transcribe audio and video, with subtitles ready to export.</p></div>
+        <div class="feature"><svg class="icon" aria-hidden="true"><use href="#i-note"/></svg><h3>Text to Music</h3><p>Write a style and lyrics, and get a full song, sung or instrumental.</p></div>
+        <div class="feature"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><h3>Text to Image</h3><p>Describe a picture and watch it appear.</p></div>
+        <div class="feature"><svg class="icon" aria-hidden="true"><use href="#i-edit"/></svg><h3>Edit Image</h3><p>Change a picture by saying what to change.</p></div>
+        <div class="feature"><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg><h3>Text to Video</h3><p>Bring a scene to life as a short, moving shot.</p></div>
+        <div class="feature"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><h3>Library and Projects</h3><p>Everything you make, in one place. Search it, star it, gather it into projects.</p></div>
+      </div>
+      <p class="ontheway gap3"><b>On the way:</b> stem separation, noise reduction, video upscaling, Apple's own voices, and cover art for every song.</p>
+    </div>
+  </section>
+
+  <section class="block" id="app" aria-labelledby="app-title">
+    <div class="wrap">
+      <div class="head center">
+        <span class="eyebrow">The app</span>
+        <h2 id="app-title">Built for the Mac you have.</h2>
+        <p>One window for everything you make. Each tool opens on what you are about to create.</p>
+      </div>
+      <div class="desk">
+        <div class="desk-row">
+          <div class="tower" aria-hidden="true"></div>
+          <div class="display">
+            <div class="panel-frame"><div class="screen" id="deskScreen" data-ctl="seg" role="img" aria-label="Reverie Studio on a desktop Mac">
+              <picture  class="on" data-label="Home" data-cap="Type an idea, pick Speech, Music, Image or Video, and make it."><source type="image/webp" srcset="media/ui/home-800.webp 800w, media/ui/home-1440.webp 1440w, media/ui/home.webp 2880w" sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1104px) calc((100vw - 64px) * 0.95), 994px"><img src="media/ui/home-1440.jpg" alt="" loading="eager"></picture>
+              <picture data-label="Image and Video" data-cap="Everything you have made, with the prompt floating over it."><source type="image/webp" srcset="media/ui/visual-800.webp 800w, media/ui/visual-1440.webp 1440w, media/ui/visual.webp 2880w" sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1104px) calc((100vw - 64px) * 0.95), 994px"><img src="media/ui/visual-1440.jpg" alt="" loading="lazy"></picture>
+              <picture data-label="Music" data-cap="A title, a style and lyrics, and every take you have made below."><source type="image/webp" srcset="media/ui/music-800.webp 800w, media/ui/music-1440.webp 1440w, media/ui/music.webp 2880w" sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1104px) calc((100vw - 64px) * 0.95), 994px"><img src="media/ui/music-1440.jpg" alt="" loading="lazy"></picture>
+              <picture data-label="Projects" data-cap="Gather songs, pictures, video and prompts, and play them in order."><source type="image/webp" srcset="media/ui/project-800.webp 800w, media/ui/project-1440.webp 1440w, media/ui/project.webp 2880w" sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1104px) calc((100vw - 64px) * 0.95), 994px"><img src="media/ui/project-1440.jpg" alt="" loading="lazy"></picture>
+              <picture data-label="Your Mac" data-cap="Memory and disk at a glance, and every model this Mac can run."><source type="image/webp" srcset="media/ui/mac-800.webp 800w, media/ui/mac-1440.webp 1440w, media/ui/mac.webp 2880w" sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1104px) calc((100vw - 64px) * 0.95), 994px"><img src="media/ui/mac-1440.jpg" alt="" loading="lazy"></picture>
+            </div></div>
+            <div class="neck"></div>
+            <div class="foot"></div>
+          </div>
+        </div>
+        <div class="desk-line"></div>
+        <div class="desk-shadow"></div>
+      </div>
+      <div class="seg-row">
+        <div class="seg" id="deskSeg" role="group" aria-label="Screen"></div>
+        <p class="screen-cap" id="deskCap" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="mac" aria-labelledby="mac-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Your Mac</span>
+        <h2 id="mac-title">Sized to your Mac.</h2>
+        <p>Reverie Studio checks your Mac's memory and offers the models that fit it. Bigger Macs get bigger models; every Mac gets every kind of media.</p>
+      </div>
+      <div class="tiers">
+        <div class="tier">
+          <div class="mem">16 GB<span>and up</span></div>
+          <ul>
+            <li>Speech with built-in voices, and quick voice clones</li>
+            <li>Transcription and subtitles</li>
+            <li>Full songs, images, image edits and short video</li>
+          </ul>
+          <p class="eg">Measured on a Mac mini with M4: an image in about three minutes.</p>
+        </div>
+        <div class="tier">
+          <div class="mem">36&ndash;48 GB</div>
+          <ul>
+            <li>Everything above, with larger, sharper models</li>
+            <li>Train your own voice from 32 GB</li>
+            <li>Tuned voices from 24 GB</li>
+          </ul>
+          <p class="eg">Larger image and edit models that follow your words more closely.</p>
+        </div>
+        <div class="tier">
+          <div class="mem">64 GB<span>and up</span></div>
+          <ul>
+            <li>The largest image, video and music models</li>
+            <li>Room for a song and a video in the same evening</li>
+            <li>Several tools working at once</li>
+          </ul>
+          <p class="eg">Measured on a Mac Studio with M3 Ultra: an image in about 30 seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="private" aria-labelledby="private-title">
+    <div class="wrap private">
+      <div>
+        <span class="eyebrow">Private</span>
+        <h2 id="private-title" class="gap3">Your work stays yours.</h2>
+        <p class="muted gap3">No account. No tracking. Works <em>entirely</em> offline once your models are in place.</p>
+      </div>
+      <div class="stay">
+        <h3><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>Stays on your Mac</h3>
+        <ul><li>Your prompts and lyrics</li><li>Your recordings and voices</li><li>Every song, image and video</li><li>Your projects and favorites</li></ul>
+      </div>
+      <div>
+        <h3><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Goes online</h3>
+        <ul><li>Model downloads, from their publishers, when you choose them</li><li>Nothing else</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="connections" id="connections" aria-labelledby="connections-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Connections</span>
+        <h2 id="connections-title">The studio for your whole home.</h2>
+        <p>Reverie Studio keeps working in the background, so your smart home, your chats, your scripts and your phone can all make things with it. Everything still happens on your Mac.</p>
+      </div>
+            <div class="hub" aria-hidden="true"><svg viewBox="0 0 1000 300"><path class="wire" d="M390 150 C 320 150, 330 70, 255 70"/><path class="wire" d="M390 150 C 320 150, 330 230, 255 230"/><path class="wire" d="M610 150 C 680 150, 670 70, 745 70"/><path class="wire" d="M610 150 C 680 150, 670 230, 745 230"/><path class="wire" d="M500 186 L 500 236"/><g class="core" transform="translate(390,114)"><rect width="220" height="72" rx="16"/><g transform="translate(22,24)" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"><use href="#i-wave" width="24" height="24"/></g><text x="56" y="34">Reverie Studio</text><text class="sub" x="56" y="54">on your Mac</text></g><g class="node" transform="translate(45,38)"><rect width="210" height="64" rx="14"/><g class="lg" transform="translate(18,20)"><use href="#lg-ha" width="24" height="24"/></g><text x="54" y="29">Home Assistant</text><text class="sub" x="54" y="47">Voices and listening</text></g><g class="node" transform="translate(45,198)"><rect width="210" height="64" rx="14"/><image href="img/logos/openwebui.png" x="16" y="18" width="28" height="28"/><text x="54" y="29">Open WebUI</text><text class="sub" x="54" y="47">Media from your chats</text></g><g class="node" transform="translate(745,38)"><rect width="210" height="64" rx="14"/><g class="ic" transform="translate(18,20)"><use href="#i-code" width="24" height="24"/></g><text x="54" y="29">Your apps</text><text class="sub" x="54" y="47">An API on your network</text></g><g class="node" transform="translate(745,198)"><rect width="210" height="64" rx="14"/><g class="ic" transform="translate(18,20)"><use href="#i-phone" width="24" height="24"/></g><text x="54" y="29">Your phone</text><text class="sub" x="54" y="47">Make things on the go</text></g><g class="node" transform="translate(385,236)"><rect width="230" height="64" rx="14"/><g class="ic" transform="translate(18,20)"><use href="#i-wand" width="24" height="24"/></g><text x="54" y="29">Local language models</text><text class="sub" x="54" y="47">Sharper prompts</text></g></svg></div>
+      <div class="conn-grid">
+        <article class="conn wide">
+          <div class="top"><span class="brand-tile"><svg class="logo" aria-hidden="true"><use href="#lg-ha"/></svg></span><span class="who"><b>Home Assistant</b><span class="for">Voices and listening for your smart home</span></span></div>
+          <h3>Give your home a voice. Even yours.</h3>
+          <p>Announcements, reminders and Assist replies in any Reverie Studio voice, <strong>including one you trained on your own recordings</strong>. It listens as well: speech to text over Wyoming, the protocol Home Assistant already speaks. No cloud voice service, no subscription, nothing leaves the house.</p>
+          <div class="tags"><span>Text to speech</span><span>Speech to text</span><span>Wyoming</span><span>Your own voice</span></div>
+        </article>
+        <article class="conn">
+          <div class="top"><span class="brand-tile"><img class="logo" src="img/logos/openwebui.png" alt="Open WebUI" width="44" height="44"></span><span class="who"><b>Open WebUI</b><span class="for">Media from your chats</span></span></div>
+          <h3>Ask in a chat. Get the picture.</h3>
+          <p>Ask for an image, a short video or a spoken reply in Open WebUI, and your Mac makes it right there in the conversation.</p>
+          <div class="tags"><span>Images</span><span>Video</span><span>Speech</span></div>
+        </article>
+        <article class="conn">
+          <div class="top"><span class="brand-tile"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></span><span class="who"><b>Your apps and scripts</b><span class="for">An API on your network</span></span></div>
+          <h3>An API that is always on.</h3>
+          <p>Make speech, music, images and video from any app, script or shortcut on your network. Send a request, follow its progress, collect the file.</p>
+          <div class="logos"><span><svg class="logo" aria-hidden="true"><use href="#lg-python"/></svg>Python</span><span><svg class="logo" aria-hidden="true"><use href="#lg-node"/></svg>Node.js</span><span><svg class="logo" aria-hidden="true"><use href="#lg-curl"/></svg>curl</span><span class="plain">Shortcuts</span><span class="plain">Anything that speaks HTTP</span></div>
+        </article>
+        <article class="conn">
+          <div class="top"><span class="brand-tile"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span><span class="who"><b>Your phone</b><span class="for">Wherever you are</span></span></div>
+          <h3>Your studio, in your pocket.</h3>
+          <p>Reach Reverie Studio from your phone over a private network such as Tailscale. Start a song on the train; it is waiting when you get home.</p>
+          <div class="logos"><span><svg class="logo" aria-hidden="true"><use href="#lg-tailscale"/></svg>Tailscale</span><span class="plain">Phone layout</span><span class="plain">Private network</span></div>
+        </article>
+        <article class="conn">
+          <div class="top"><span class="brand-tile"><svg class="icon" aria-hidden="true"><use href="#i-wand"/></svg></span><span class="who"><b>Local language models</b><span class="for">For better prompts</span></span></div>
+          <h3>Sharper prompts, still local.</h3>
+          <p>Reverie Studio refines your ideas with the language model you already run. Nothing set up? It downloads a small one that fits your Mac.</p>
+          <div class="logos"><span><svg class="logo" aria-hidden="true"><use href="#lg-star8"/></svg>Apple Intelligence</span><span><svg class="logo" aria-hidden="true"><use href="#lg-omlx"/></svg>oMLX</span><span><svg class="logo" aria-hidden="true"><use href="#lg-ollama"/></svg>Ollama</span><span><img class="logo mono" src="img/logos/llamacpp.svg" alt="llama.cpp" width="20" height="20">llama.cpp</span><span><img class="logo" src="img/logos/mtplx.png" alt="MTPLX" width="20" height="20">MTPLX</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="glow" aria-hidden="true"><picture aria-hidden="true"><source type="image/webp" srcset="media/img/d4d280fda927-glow.webp" sizes="60vw"><img src="media/img/d4d280fda927-glow.jpg" alt="" loading="lazy" decoding="async" fetchpriority="low"></picture></div>
+    <div class="cta-stack">
+      <span class="eyebrow">Coming soon to the Mac</span>
+      <h2 id="cta-title">Your Mac is already a studio.</h2>
+      <p class="req"><em>Any</em> Mac with Apple silicon, macOS 26 and 16 GB of memory or more.</p>
+      <a class="btn primary" href="mailto:hello@reveriestudio.app">Get notified</a>
+      <p class="mail">hello@reveriestudio.app</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <span>&copy; 2026 Better Than Expected, LLC</span>
+      <span>This site uses no cookies and no trackers.</span>
+    </div>
+    <p class="credits" id="credits"></p>
+  </div>
+</footer>
+
+<script type="application/json" id="site-data">{
+ "project": "7baa29f1c51545779cd7b629c8469461",
+ "gateway": "the running Reverie gateway (read only)",
+ "mac": "Mac Studio M3 Ultra, 96 GB",
+ "stories": [
+  {
+   "name": "Drifting lights",
+   "image": "8392d2326e21",
+   "video": "00d11b1423cc",
+   "song": "795e4744a1bc",
+   "narration": null
+  },
+  {
+   "name": "Starfall",
+   "image": "ca4967dd1bf3",
+   "video": "dd0f22d4ffd6",
+   "song": "d97bdd07c187",
+   "narration": null
+  },
+  {
+   "name": "Stone halo",
+   "image": "a0a2bbe93a41",
+   "video": "398bd1de51ce",
+   "song": "4f4d9b5193f4",
+   "narration": null
+  },
+  {
+   "name": "The bear and the stars",
+   "image": "95a1e719766e",
+   "video": "c4b263691ae7",
+   "song": null,
+   "narration": "9a6b862b9404"
+  },
+  {
+   "name": "The cloud harbour",
+   "image": "993bef9e030a",
+   "video": null,
+   "song": "4f9f5e3503e2",
+   "narration": null
+  },
+  {
+   "name": "The whale village",
+   "image": "d4d280fda927",
+   "video": null,
+   "song": "21abb17fbcc1",
+   "narration": "3cddd74e7d8a"
+  }
+ ],
+ "gallery": [
+  "da41d2535383",
+  "769b855d5a3a",
+  "752058080ebe",
+  "45238ebae566",
+  "39eb1cbe3744",
+  "8eb49a89dd66",
+  "d297f2965c2d",
+  "9d20e2225ca5",
+  "c13768b33f9d"
+ ],
+ "heroNarration": "30c57d5a35f2",
+ "items": {
+  "00d11b1423cc": {
+   "id": "00d11b1423cc",
+   "service": "mirage",
+   "job_id": "00d11b1423cc",
+   "kind": "video",
+   "short": "Drifting lights",
+   "prompt": "Glowing creatures like translucent jellyfish drift slowly between the trunks of giant redwoods on a foggy night, gathered on the right of the frame. Photoreal cinematic footage. Their soft bodies pulse with pale blue and violet light, trailing long glowing tendrils, and their light moves across the wet bark and the ferns. A young man in a rain jacket stands among the ferns in the right third, looking up, his face softly lit blue, and slowly reaches one hand toward the nearest creature. On the left, the forest fades into dark, quiet fog. The camera cranes up slowly from the forest floor. Deep shadows, volumetric fog, natural skin texture, film grain, realistic. A quiet forest at night, dripping water, a soft glassy chime.",
+   "model": "LTX-2.5",
+   "licence": "LTX-2 Community License",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 539.9,
+   "size": "1536x640",
+   "files": {
+    "video": "media/vid/00d11b1423cc.mp4",
+    "poster": "media/vid/00d11b1423cc-poster.webp",
+    "poster_fallback": "media/vid/00d11b1423cc-poster.jpg",
+    "poster_small": "media/vid/00d11b1423cc-poster-800.webp",
+    "poster_small_fallback": "media/vid/00d11b1423cc-poster-800.jpg"
+   }
+  },
+  "398bd1de51ce": {
+   "id": "398bd1de51ce",
+   "service": "mirage",
+   "job_id": "398bd1de51ce",
+   "kind": "video",
+   "short": "Stone halo",
+   "prompt": "A colossal ring of ancient carved sandstone hangs in the air above the desert dunes at golden hour, in the right third of the frame, turning very slowly. Photoreal cinematic footage. Beneath it, thin ribbons of sand lift off the dune crests and flow upward into the ring, glowing in the low sun. A lone traveller in pale robes leads a camel along a ridge below the ring, small against its scale, and stops to look up. On the left, smooth empty dunes roll away under a clear sky. Long shadows stretch across the sand. The camera tracks slowly sideways along the dunes. Warm amber and deep blue sky, heat haze, realistic. Desert wind and a deep, resonant tone.",
+   "model": "LTX-2.5",
+   "licence": "LTX-2 Community License",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 527.6,
+   "size": "1536x640",
+   "files": {
+    "video": "media/vid/398bd1de51ce.mp4",
+    "poster": "media/vid/398bd1de51ce-poster.webp",
+    "poster_fallback": "media/vid/398bd1de51ce-poster.jpg",
+    "poster_small": "media/vid/398bd1de51ce-poster-800.webp",
+    "poster_small_fallback": "media/vid/398bd1de51ce-poster-800.jpg"
+   }
+  },
+  "39eb1cbe3744": {
+   "id": "39eb1cbe3744",
+   "service": "mirage",
+   "job_id": "39eb1cbe3744",
+   "kind": "video",
+   "short": "Paper lanterns",
+   "prompt": "At dusk on a still mountain lake, warm paper lanterns drift slowly upward into a deep indigo sky, each glowing amber and swaying slightly as it rises. Their reflections shimmer gently on the mirror-like water. In the right third of the frame a person sits in a small wooden rowing boat among the reeds, seen from behind, slowly lifts a lantern with both hands and lets it go; it floats up and away. The camera rises very slowly, tilting up with the lanterns. Soft haze lies over pine hills in the distance. Calm, dreamy, realistic, gentle motion. Quiet water lapping and a soft breeze.",
+   "model": "LTX-2.5",
+   "licence": "LTX-2 Community License",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 509.3,
+   "size": "1536x640",
+   "files": {
+    "video": "media/vid/39eb1cbe3744.mp4",
+    "poster": "media/vid/39eb1cbe3744-poster.webp",
+    "poster_fallback": "media/vid/39eb1cbe3744-poster.jpg",
+    "poster_small": "media/vid/39eb1cbe3744-poster-800.webp",
+    "poster_small_fallback": "media/vid/39eb1cbe3744-poster-800.jpg"
+   }
+  },
+  "45238ebae566": {
+   "id": "45238ebae566",
+   "service": "mirage",
+   "job_id": "45238ebae566",
+   "kind": "image",
+   "short": "The sunken cathedral",
+   "prompt": "A humpback whale glides through the nave of a cathedral lost beneath the sea. In the right third of the frame the whale passes between Gothic stone columns crusted with coral and sea fans, under shafts of sunlight pouring through a great rose window, while a lone free diver in a dark wetsuit floats beside a column below it, looking up. Small silver fish shimmer in the light. The left half of the frame fades into calm, open turquoise water and soft blue haze with little detail. Photorealistic underwater photograph, wide-angle lens, caustic light patterns, floating particles, natural colour, awe-inspiring scale, ultra detailed.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 27.8,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/45238ebae566-1600.webp",
+    "full_fallback": "media/img/45238ebae566-1600.jpg",
+    "small": "media/img/45238ebae566-800.webp",
+    "small_fallback": "media/img/45238ebae566-800.jpg",
+    "glow": "media/img/45238ebae566-glow.webp",
+    "glow_fallback": "media/img/45238ebae566-glow.jpg"
+   }
+  },
+  "752058080ebe": {
+   "id": "752058080ebe",
+   "service": "mirage",
+   "job_id": "752058080ebe",
+   "kind": "video",
+   "short": "The paper island",
+   "prompt": "A handcrafted miniature diorama of a tiny floating island made of paper, felt and clay, on the right of the frame, bobbing very gently in a pastel sky. A little waterfall of shimmering cellophane pours off its edge into cotton-wool clouds that drift slowly past. The cottage window glows warm and flickers softly, and the round felt tree sways slightly. The camera orbits very slowly to the left. Stop-motion charm, soft studio lighting, tilt-shift macro look. A gentle music-box tinkle and soft trickling water.",
+   "model": "LTX-2.5",
+   "licence": "LTX-2 Community License",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 518.6,
+   "size": "1536x640",
+   "files": {
+    "video": "media/vid/752058080ebe.mp4",
+    "poster": "media/vid/752058080ebe-poster.webp",
+    "poster_fallback": "media/vid/752058080ebe-poster.jpg",
+    "poster_small": "media/vid/752058080ebe-poster-800.webp",
+    "poster_small_fallback": "media/vid/752058080ebe-poster-800.jpg"
+   }
+  },
+  "769b855d5a3a": {
+   "id": "769b855d5a3a",
+   "service": "mirage",
+   "job_id": "769b855d5a3a",
+   "kind": "image",
+   "short": "Lighthouse at dawn",
+   "prompt": "Cinematic wide landscape photograph at dawn. A lone white lighthouse stands on dark basalt rocks in the right third of the frame, its lamp still glowing faintly. Long slow waves roll in from the left and break into soft white foam across the rocks. Low sea mist drifts over the water, lit from behind by a sun just below the horizon, turning the mist pale gold and peach while the sky above fades to deep blue. The left half of the frame is calm open sea and soft mist with little detail. Full-frame camera, 35mm lens, long exposure smoothing the water, fine grain, natural colour, high dynamic range, ultra detailed.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 26.8,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/769b855d5a3a-1600.webp",
+    "full_fallback": "media/img/769b855d5a3a-1600.jpg",
+    "small": "media/img/769b855d5a3a-800.webp",
+    "small_fallback": "media/img/769b855d5a3a-800.jpg",
+    "glow": "media/img/769b855d5a3a-glow.webp",
+    "glow_fallback": "media/img/769b855d5a3a-glow.jpg"
+   }
+  },
+  "8392d2326e21": {
+   "id": "8392d2326e21",
+   "service": "mirage",
+   "job_id": "8392d2326e21",
+   "kind": "image",
+   "short": "Drifting lights",
+   "prompt": "Glowing creatures drift like jellyfish through a redwood forest at night. In the right third of the frame their translucent bodies pulse with pale blue and violet light, trailing long luminous tendrils between the giant trunks and lighting the fog, while a young man in a rain jacket stands among the ferns beneath them, looking up, his face softly lit blue. The left half of the frame fades into dark, quiet fog and shadowed trunks with little detail. Photorealistic, full-frame camera, 35mm lens, volumetric fog, wet bark, deep shadows, natural skin texture, film grain, eerie and beautiful, ultra detailed.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 27.8,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/8392d2326e21-1600.webp",
+    "full_fallback": "media/img/8392d2326e21-1600.jpg",
+    "small": "media/img/8392d2326e21-800.webp",
+    "small_fallback": "media/img/8392d2326e21-800.jpg",
+    "glow": "media/img/8392d2326e21-glow.webp",
+    "glow_fallback": "media/img/8392d2326e21-glow.jpg"
+   }
+  },
+  "8eb49a89dd66": {
+   "id": "8eb49a89dd66",
+   "service": "mirage",
+   "job_id": "8eb49a89dd66",
+   "kind": "image",
+   "short": "The iron heron",
+   "prompt": "A giant iron heron wades through the drowned city as a girl with a kite looks on. In the right third of the frame, a colossal mechanical heron made of riveted iron plates wades through flooded streets between dark towers, its single round eye glowing amber, while a small girl stands on a rain-soaked rooftop in the right foreground, coat whipping in the wind. The left half of the frame is dark, rain-streaked sky over still floodwater with little detail. Inked graphic-novel panel, bold black brush linework, halftone dot shading, flat muted colours of indigo, rust and cream, rain drawn as slanted ink strokes, dramatic and cinematic.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 27.1,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/8eb49a89dd66-1600.webp",
+    "full_fallback": "media/img/8eb49a89dd66-1600.jpg",
+    "small": "media/img/8eb49a89dd66-800.webp",
+    "small_fallback": "media/img/8eb49a89dd66-800.jpg",
+    "glow": "media/img/8eb49a89dd66-glow.webp",
+    "glow_fallback": "media/img/8eb49a89dd66-glow.jpg"
+   }
+  },
+  "95a1e719766e": {
+   "id": "95a1e719766e",
+   "service": "mirage",
+   "job_id": "95a1e719766e",
+   "kind": "image",
+   "short": "The bear and the lake of stars",
+   "prompt": "A small bear rows across a lake of stars under a low crescent moon. The little brown bear wears a knitted red scarf and sits in a wooden rowing boat in the right third of the frame, ripples of reflected starlight spreading from the oars, fireflies glowing among tall reeds beside it, and a huge crescent moon hanging low above it like a lamp. The left half of the frame is calm, open starlit water and quiet deep blue sky with little detail. Hand-painted picture-book illustration in gouache and coloured pencil on textured paper, deep blue, cream and warm gold palette, soft ink outlines, visible paper grain, cosy bedtime-story mood.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 27.7,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/95a1e719766e-1600.webp",
+    "full_fallback": "media/img/95a1e719766e-1600.jpg",
+    "small": "media/img/95a1e719766e-800.webp",
+    "small_fallback": "media/img/95a1e719766e-800.jpg",
+    "glow": "media/img/95a1e719766e-glow.webp",
+    "glow_fallback": "media/img/95a1e719766e-glow.jpg"
+   }
+  },
+  "993bef9e030a": {
+   "id": "993bef9e030a",
+   "service": "mirage",
+   "job_id": "993bef9e030a",
+   "kind": "image",
+   "short": "The cloud harbour",
+   "prompt": "A young mechanic waits at the end of a dock above an endless sea of clouds. She has goggles pushed up on her head and grease on her cheek, and stands at the end of a weathered wooden dock in the right third of the frame, a small airship with patched canvas sails moored beside her. The left half of the frame is open vivid blue sky over a soft white cloud sea stretching to the horizon, with little detail. Towering summer cumulus clouds rise in the distance. 2D anime feature-film still, clean line art, cel shading, hand-painted sky, bright summer light, hopeful and adventurous.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 27.1,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/993bef9e030a-1600.webp",
+    "full_fallback": "media/img/993bef9e030a-1600.jpg",
+    "small": "media/img/993bef9e030a-800.webp",
+    "small_fallback": "media/img/993bef9e030a-800.jpg",
+    "glow": "media/img/993bef9e030a-glow.webp",
+    "glow_fallback": "media/img/993bef9e030a-glow.jpg"
+   }
+  },
+  "9d20e2225ca5": {
+   "id": "9d20e2225ca5",
+   "service": "mirage",
+   "job_id": "9d20e2225ca5",
+   "kind": "image",
+   "short": "The glasshouse droplet",
+   "prompt": "Extreme macro photograph inside an old Victorian glasshouse in the morning. A single drop of water hangs from the tip of a curled fern frond in the right third of the frame; inside the drop the whole glasshouse is reflected upside down. Shafts of sunlight fall through misted glass panes, catching floating dust and tiny droplets. The background melts into soft green and gold bokeh, and the left half is soft and out of focus. 100mm macro lens, f/2.8, crisp detail on the droplet's surface, natural light, ultra detailed.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 26.3,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/9d20e2225ca5-1600.webp",
+    "full_fallback": "media/img/9d20e2225ca5-1600.jpg",
+    "small": "media/img/9d20e2225ca5-800.webp",
+    "small_fallback": "media/img/9d20e2225ca5-800.jpg",
+    "glow": "media/img/9d20e2225ca5-glow.webp",
+    "glow_fallback": "media/img/9d20e2225ca5-glow.jpg"
+   }
+  },
+  "a0a2bbe93a41": {
+   "id": "a0a2bbe93a41",
+   "service": "mirage",
+   "job_id": "a0a2bbe93a41",
+   "kind": "image",
+   "short": "Stone halo",
+   "prompt": "An ancient stone ring hangs above the dunes, drawing the sand up into the sky. The colossal ring of weathered, carved sandstone floats in the right third of the frame at golden hour, and thin ribbons of sand stream upward from the dune crests into it, glowing in the low sun. A lone traveller in pale robes leads a camel along a ridge beneath it, tiny against its scale. The left half of the frame is smooth, empty dunes under a clear deep blue sky with little detail. Photorealistic, cinematic wide shot, 35mm lens, warm amber light, long shadows, heat haze, ultra detailed.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 27.8,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/a0a2bbe93a41-1600.webp",
+    "full_fallback": "media/img/a0a2bbe93a41-1600.jpg",
+    "small": "media/img/a0a2bbe93a41-800.webp",
+    "small_fallback": "media/img/a0a2bbe93a41-800.jpg",
+    "glow": "media/img/a0a2bbe93a41-glow.webp",
+    "glow_fallback": "media/img/a0a2bbe93a41-glow.jpg"
+   }
+  },
+  "c13768b33f9d": {
+   "id": "c13768b33f9d",
+   "service": "mirage",
+   "job_id": "c13768b33f9d",
+   "kind": "video",
+   "short": "The glasshouse droplet",
+   "prompt": "Extreme macro shot in a sunlit Victorian glasshouse. A single clear water droplet slowly swells at the tip of a curled green fern frond on the right of the frame, trembling slightly and reflecting the glasshouse inside it. Fine dust motes and tiny droplets drift slowly through shafts of warm morning sunlight. The background is soft green and gold bokeh. The camera holds still with a very slow focus pull onto the droplet. Calm, delicate, realistic. Faint dripping and a quiet greenhouse ambience.",
+   "model": "LTX-2.5",
+   "licence": "LTX-2 Community License",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 552.1,
+   "size": "1536x640",
+   "files": {
+    "video": "media/vid/c13768b33f9d.mp4",
+    "poster": "media/vid/c13768b33f9d-poster.webp",
+    "poster_fallback": "media/vid/c13768b33f9d-poster.jpg",
+    "poster_small": "media/vid/c13768b33f9d-poster-800.webp",
+    "poster_small_fallback": "media/vid/c13768b33f9d-poster-800.jpg"
+   }
+  },
+  "c4b263691ae7": {
+   "id": "c4b263691ae7",
+   "service": "mirage",
+   "job_id": "c4b263691ae7",
+   "kind": "video",
+   "short": "The bear and the lake of stars",
+   "prompt": "A small brown bear in a knitted red scarf rows a little wooden boat slowly across a still lake full of reflected stars, on the right of the frame, in classic hand-drawn 2D animation that looks like a painted picture book: gouache and coloured pencil on textured paper, soft wobbling ink outlines, gentle limited animation. Each stroke of the oars sends rings of starlight rippling across the water. Fireflies blink on and off among the reeds beside the boat, and a large crescent moon hangs low above the bear and sways very gently, as if on a string. The left side is calm, open water and a quiet starry sky. The camera holds still at the water's level, painted layers sliding past in soft parallax. Deep blue, cream and warm gold. Quiet storybook animation, flat painted look, not 3D. Oars dipping, crickets, a soft night breeze.",
+   "model": "LTX-2.5",
+   "licence": "LTX-2 Community License",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 531.7,
+   "size": "1536x640",
+   "files": {
+    "video": "media/vid/c4b263691ae7.mp4",
+    "poster": "media/vid/c4b263691ae7-poster.webp",
+    "poster_fallback": "media/vid/c4b263691ae7-poster.jpg",
+    "poster_small": "media/vid/c4b263691ae7-poster-800.webp",
+    "poster_small_fallback": "media/vid/c4b263691ae7-poster-800.jpg"
+   }
+  },
+  "ca4967dd1bf3": {
+   "id": "ca4967dd1bf3",
+   "service": "mirage",
+   "job_id": "ca4967dd1bf3",
+   "kind": "image",
+   "short": "Starfall over the harbour",
+   "prompt": "A girl and her cat watch the stars fall softly into the bay. She has short dark hair and sits on a tiled rooftop beside a sleeping black cat, seen from behind and slightly to the side, in the right third of the frame, with a sleepy harbour town and its warm windows below her. Falling stars curve slowly down out of the deep blue night sky, each trailing soft light, and settle on the water of the bay like floating lanterns. The left half of the frame is open night sky and calm dark water with a few gentle star trails. 2D anime feature-film still, clean line art, cel shading with soft gradients, hand-painted background art, luminous bloom, wondrous and calm.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 27.7,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/ca4967dd1bf3-1600.webp",
+    "full_fallback": "media/img/ca4967dd1bf3-1600.jpg",
+    "small": "media/img/ca4967dd1bf3-800.webp",
+    "small_fallback": "media/img/ca4967dd1bf3-800.jpg",
+    "glow": "media/img/ca4967dd1bf3-glow.webp",
+    "glow_fallback": "media/img/ca4967dd1bf3-glow.jpg"
+   }
+  },
+  "d297f2965c2d": {
+   "id": "d297f2965c2d",
+   "service": "mirage",
+   "job_id": "d297f2965c2d",
+   "kind": "video",
+   "short": "The sunken cathedral",
+   "prompt": "A humpback whale glides slowly through the flooded nave of a sunken Gothic cathedral in the right third of the frame, between stone columns crusted with coral. Photoreal underwater cinematic footage. Shafts of sunlight fall through a great rose window above and shimmer on the sandy floor. A lone free diver in a dark wetsuit hangs still beside a column on the right, looking up as the whale passes, a slow stream of bubbles rising from her. On the left, the nave fades into calm, open blue water. Small silver fish turn together in the light. The camera drifts slowly backward. Teal and turquoise water, soft caustic light, floating particles, realistic. Whale song echoing through the water.",
+   "model": "LTX-2.5",
+   "licence": "LTX-2 Community License",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 522.7,
+   "size": "1536x640",
+   "files": {
+    "video": "media/vid/d297f2965c2d.mp4",
+    "poster": "media/vid/d297f2965c2d-poster.webp",
+    "poster_fallback": "media/vid/d297f2965c2d-poster.jpg",
+    "poster_small": "media/vid/d297f2965c2d-poster-800.webp",
+    "poster_small_fallback": "media/vid/d297f2965c2d-poster-800.jpg"
+   }
+  },
+  "d4d280fda927": {
+   "id": "d4d280fda927",
+   "service": "mirage",
+   "job_id": "d4d280fda927",
+   "kind": "image",
+   "short": "The whale village",
+   "prompt": "A great blue whale drifts through sunset clouds, carrying a tiny village on its back. The whale sits in the right third of the frame: crooked little houses with warm glowing windows, a striped lighthouse and a winding path cling to its broad back, and a little girl in a yellow raincoat waves from a rooftop. Birds trail behind it through soft banks of peach and rose cloud. The left half of the frame is open, calm peach sky with a few soft clouds and little detail. Hand-painted picture-book illustration in gouache and coloured pencil on textured watercolour paper, soft visible brush strokes, gentle ink outlines, warm limited palette, whimsical and tender, full-bleed storybook spread.",
+   "model": "Z-Image Turbo",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 27.6,
+   "size": "1536x640",
+   "files": {
+    "full": "media/img/d4d280fda927-1600.webp",
+    "full_fallback": "media/img/d4d280fda927-1600.jpg",
+    "small": "media/img/d4d280fda927-800.webp",
+    "small_fallback": "media/img/d4d280fda927-800.jpg",
+    "glow": "media/img/d4d280fda927-glow.webp",
+    "glow_fallback": "media/img/d4d280fda927-glow.jpg"
+   }
+  },
+  "da41d2535383": {
+   "id": "da41d2535383",
+   "service": "mirage",
+   "job_id": "da41d2535383",
+   "kind": "video",
+   "short": "Where the sea glows",
+   "prompt": "A woman in a dark wool coat stands ankle-deep in the surf on a black-sand beach at blue hour, in the right third of the frame, and every wave that breaks around her feet glows vibrant and bright HDR electric blue. Photoreal cinematic footage. Tiny motes of the same vibrant HDR blue light lift off the water and rise slowly into the air around her like rain falling upward. She slowly raises one open hand and a few motes drift toward it and hover over her palm, lighting her face softly from below. Tall sea stacks stand in the mist behind her, and the left side is calm dark sea and soft mist. The camera dollies in slowly at waist height. Deep blue dusk, cold mist, natural skin texture, shallow depth of field, film grain. Gentle surf and a low, airy hum.",
+   "model": "LTX-2.5",
+   "licence": "LTX-2 Community License",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 524.4,
+   "size": "1536x640",
+   "files": {
+    "video": "media/vid/da41d2535383.mp4",
+    "poster": "media/vid/da41d2535383-poster.webp",
+    "poster_fallback": "media/vid/da41d2535383-poster.jpg",
+    "poster_small": "media/vid/da41d2535383-poster-800.webp",
+    "poster_small_fallback": "media/vid/da41d2535383-poster-800.jpg"
+   }
+  },
+  "dd0f22d4ffd6": {
+   "id": "dd0f22d4ffd6",
+   "service": "mirage",
+   "job_id": "dd0f22d4ffd6",
+   "kind": "video",
+   "short": "Starfall over the harbour",
+   "prompt": "A girl with short dark hair sits on a tiled rooftop at night beside a sleeping black cat, on the right of the frame, watching falling stars curve slowly down out of the sky and settle into the bay like glowing lanterns. 2D anime film animation, clean line art, cel shading with soft gradients, hand-painted night background. Each star draws a long soft trail of light across the open deep blue sky on the left, then floats on the water and glows. Her hair and the cat's tail stir in a light breeze, and she slowly turns her head to follow one star down. The camera cranes up gently behind them, revealing the sleepy harbour town below. Luminous bloom, calm and wondrous. Soft wind, distant waves, wind chimes.",
+   "model": "LTX-2.5",
+   "licence": "LTX-2 Community License",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 530.0,
+   "size": "1536x640",
+   "files": {
+    "video": "media/vid/dd0f22d4ffd6.mp4",
+    "poster": "media/vid/dd0f22d4ffd6-poster.webp",
+    "poster_fallback": "media/vid/dd0f22d4ffd6-poster.jpg",
+    "poster_small": "media/vid/dd0f22d4ffd6-poster-800.webp",
+    "poster_small_fallback": "media/vid/dd0f22d4ffd6-poster-800.jpg"
+   }
+  },
+  "21abb17fbcc1": {
+   "id": "21abb17fbcc1",
+   "service": "vibe",
+   "job_id": "21abb17fbcc1",
+   "kind": "song",
+   "short": "The Town on the Whale's Back",
+   "prompt": "Instrumental, no vocals, whimsical chamber orchestra waltz, storybook film score, gentle 3/4 sway, celesta melody, pizzicato strings, warm clarinet, soft accordion, glockenspiel sparkles, light harp, playful and tender, 92 BPM, F major, cosy wooden room sound, gentle swelling strings, music-box warmth, no drums",
+   "lyrics": "[Intro]\n[Instrumental]\n[Outro]",
+   "model": "YuE2",
+   "licence": "CC BY-NC 4.0",
+   "licence_placeholder": true,
+   "replace_before_launch": "YuE2 is CC BY-NC 4.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 254.8,
+   "files": {
+    "audio": "media/aud/21abb17fbcc1.m4a"
+   }
+  },
+  "4f4d9b5193f4": {
+   "id": "4f4d9b5193f4",
+   "service": "vibe",
+   "job_id": "4f4d9b5193f4",
+   "kind": "song",
+   "short": "Stone Halo",
+   "prompt": "Instrumental, cinematic desert ambient, oud melody, duduk long tones, frame drum and soft hand percussion, low string drone, warm sub bass, shimmering synth pad, mystical and ancient, slow and hypnotic, 76 BPM, D Phrygian, wide dry heat, slow-building intensity, no vocals",
+   "lyrics": "[Verse]",
+   "model": "YuE2",
+   "licence": "CC BY-NC 4.0",
+   "licence_placeholder": true,
+   "replace_before_launch": "YuE2 is CC BY-NC 4.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 68.5,
+   "files": {
+    "audio": "media/aud/4f4d9b5193f4.m4a"
+   }
+  },
+  "4f9f5e3503e2": {
+   "id": "4f9f5e3503e2",
+   "service": "vibe",
+   "job_id": "4f9f5e3503e2",
+   "kind": "song",
+   "short": "The Cloud Harbour",
+   "prompt": "Instrumental, no vocals, bright adventure film score, folk orchestra, lively fiddle melody, tin whistle, acoustic guitar strumming, accordion, warm French horn, pizzicato strings, light frame drum, soaring strings, sunny and hopeful, 112 BPM, G major, open airy mix, wind-swept and joyful",
+   "lyrics": "[Intro]\n[Instrumental]\n[Outro]",
+   "model": "YuE2",
+   "licence": "CC BY-NC 4.0",
+   "licence_placeholder": true,
+   "replace_before_launch": "YuE2 is CC BY-NC 4.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 336.4,
+   "files": {
+    "audio": "media/aud/4f9f5e3503e2.m4a"
+   }
+  },
+  "795e4744a1bc": {
+   "id": "795e4744a1bc",
+   "service": "vibe",
+   "job_id": "795e4744a1bc",
+   "kind": "song",
+   "short": "Drifting Lights",
+   "prompt": "Instrumental, ambient electronica, glassy synth arpeggios, soft analogue pads, felt piano, warm sub bass, gentle glitch percussion, glass harmonica tones, bioluminescent and dreamy, mysterious but calm, 88 BPM, F sharp minor, deep stereo reverb, soft sidechain breathing, nocturnal",
+   "lyrics": "[Intro]\n\n[Verse]\nAh, ah, ah\nAh, ah, ah\nAh, ah, ah\nAh\n\n[Chorus]\nAh, ah\nAh, ah\nAh, ah\nAh, ah\n\n[Interlude]\n\n[Verse]\nAh, ah, ah\nAh, ah, ah\nAh, ah, ah\nAh\n\n[Chorus]\nAh, ah\nAh, ah\nAh, ah\nAh, ah\n\n[Outro]\nAh",
+   "model": "YuE2",
+   "licence": "CC BY-NC 4.0",
+   "licence_placeholder": true,
+   "replace_before_launch": "YuE2 is CC BY-NC 4.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 224.0,
+   "files": {
+    "audio": "media/aud/795e4744a1bc.m4a"
+   }
+  },
+  "d97bdd07c187": {
+   "id": "d97bdd07c187",
+   "service": "vibe",
+   "job_id": "d97bdd07c187",
+   "kind": "song",
+   "short": "Starfall Over the Harbour",
+   "prompt": "English, dreamy anime ballad, soft female lead vocal, breathy and warm, gentle city-pop chords, electric piano, fingerpicked clean guitar, warm synth pads, soft bass, light brushed drums, twinkling chimes, nostalgic and hopeful, 84 BPM, E major, airy reverb, intimate and wistful",
+   "lyrics": "[Verse]\nUp on the tiles where the old town sleeps\nThe cat is dreaming and the harbour keeps\nEvery light that it was ever given\nFolded small like a secret hidden\n\n[Pre-Chorus]\nAnd then the sky begins to lean\nSlow as a page in a summer dream\n\n[Chorus]\nStarfall over the harbour\nEvery wish coming down to the sea\nSoftly they land on the water\nGlowing like lanterns for you and me\nStarfall over the harbour\nStay a while, stay with me\n\n[Verse]\nI used to think the stars were far\nPinned up high where the quiet ones are\nNow they are drifting past the boats\nLittle lights on the tide afloat\n\n[Pre-Chorus]\nAnd all the windows hold their breath\nThe night is gentle, the night is kind\n\n[Chorus]\nStarfall over the harbour\nEvery wish coming down to the sea\nSoftly they land on the water\nGlowing like lanterns for you and me\nStarfall over the harbour\nStay a while, stay with me\n\n[Bridge]\nIf you could keep just one\nWould you hold it or let it run\nBack to the sky where it began\nI would leave it in your hand\n\n[Chorus]\nStarfall over the harbour\nEvery wish coming down to the sea\nSoftly they land on the water\nGlowing like lanterns for you and me\nStarfall over the harbour\nStay a while, stay with me\n\n[Outro]\nStay a while\nStay with me",
+   "model": "YuE2",
+   "licence": "CC BY-NC 4.0",
+   "licence_placeholder": true,
+   "replace_before_launch": "YuE2 is CC BY-NC 4.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 270.2,
+   "files": {
+    "audio": "media/aud/d97bdd07c187.m4a"
+   }
+  },
+  "30c57d5a35f2": {
+   "id": "30c57d5a35f2",
+   "service": "echo",
+   "job_id": "30c57d5a35f2",
+   "kind": "narration",
+   "short": "Welcome",
+   "job_title": "Site · Welcome",
+   "voice": "bf_lily",
+   "model": "Kokoro-82M",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 2.25,
+   "files": {
+    "audio": "media/aud/30c57d5a35f2.m4a"
+   }
+  },
+  "3cddd74e7d8a": {
+   "id": "3cddd74e7d8a",
+   "service": "echo",
+   "job_id": "3cddd74e7d8a",
+   "kind": "narration",
+   "short": "The town on the whale",
+   "job_title": "Site · The town on the whale",
+   "voice": "bf_emma",
+   "model": "Kokoro-82M",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 2.07,
+   "files": {
+    "audio": "media/aud/3cddd74e7d8a.m4a"
+   }
+  },
+  "9a6b862b9404": {
+   "id": "9a6b862b9404",
+   "service": "echo",
+   "job_id": "9a6b862b9404",
+   "kind": "narration",
+   "short": "The bear and the lake of stars",
+   "job_title": "Site · The bear and the lake of stars",
+   "voice": "bm_george",
+   "model": "Kokoro-82M",
+   "licence": "Apache-2.0",
+   "mac": "Mac Studio M3 Ultra, 96 GB",
+   "render_seconds": 0.3,
+   "files": {
+    "audio": "media/aud/9a6b862b9404.m4a"
+   }
+  }
+ },
+ "peaks": {
+  "21abb17fbcc1": [
+   0.153,
+   0.258,
+   0.703,
+   0.749,
+   0.623,
+   0.446,
+   0.533,
+   0.513,
+   0.36,
+   0.102,
+   0.643,
+   0.743,
+   0.762,
+   0.682,
+   0.714,
+   0.75,
+   0.73,
+   0.308,
+   0.745,
+   0.729,
+   0.526,
+   0.817,
+   0.648,
+   0.456,
+   0.642,
+   0.15,
+   0.723,
+   0.783,
+   0.631,
+   0.755,
+   0.646,
+   0.775,
+   0.835,
+   0.306,
+   0.685,
+   0.806,
+   0.829,
+   0.916,
+   0.81,
+   0.747,
+   0.705,
+   0.095,
+   0.77,
+   0.878,
+   0.709,
+   0.74,
+   1.0,
+   0.799,
+   0.715,
+   0.206,
+   0.814,
+   0.859,
+   0.876,
+   0.604,
+   0.441,
+   0.125
+  ],
+  "21abb17fbcc1_d": 30.02,
+  "4f4d9b5193f4": [
+   0.131,
+   0.233,
+   0.221,
+   0.273,
+   0.261,
+   0.208,
+   0.231,
+   0.243,
+   0.28,
+   0.32,
+   0.277,
+   0.247,
+   0.334,
+   0.337,
+   0.356,
+   0.278,
+   0.293,
+   0.224,
+   0.213,
+   0.176,
+   0.163,
+   0.118,
+   0.085,
+   0.093,
+   0.098,
+   0.332,
+   0.309,
+   0.346,
+   0.316,
+   0.293,
+   0.268,
+   0.252,
+   0.232,
+   0.206,
+   0.277,
+   0.368,
+   0.383,
+   0.341,
+   0.535,
+   0.897,
+   0.326,
+   0.802,
+   0.334,
+   0.81,
+   0.995,
+   0.677,
+   0.894,
+   0.676,
+   0.891,
+   0.702,
+   1.0,
+   0.424,
+   0.837,
+   0.602,
+   0.413,
+   0.059
+  ],
+  "4f4d9b5193f4_d": 30.02,
+  "4f9f5e3503e2": [
+   0.181,
+   0.812,
+   0.875,
+   1.0,
+   0.832,
+   0.754,
+   0.873,
+   0.836,
+   0.863,
+   0.901,
+   0.81,
+   0.922,
+   0.83,
+   0.995,
+   0.861,
+   0.942,
+   0.916,
+   0.872,
+   0.866,
+   0.828,
+   0.815,
+   0.764,
+   0.717,
+   0.915,
+   0.869,
+   0.56,
+   0.592,
+   0.831,
+   0.753,
+   0.61,
+   0.655,
+   0.82,
+   0.858,
+   0.549,
+   0.63,
+   0.888,
+   0.91,
+   0.689,
+   0.799,
+   0.837,
+   0.707,
+   0.699,
+   0.852,
+   0.776,
+   0.607,
+   0.685,
+   0.787,
+   0.823,
+   0.781,
+   0.791,
+   0.878,
+   0.91,
+   0.634,
+   0.52,
+   0.459,
+   0.151
+  ],
+  "4f9f5e3503e2_d": 30.02,
+  "795e4744a1bc": [
+   0.1,
+   0.203,
+   0.228,
+   0.221,
+   0.198,
+   0.22,
+   0.629,
+   0.949,
+   0.448,
+   0.642,
+   0.64,
+   0.41,
+   0.562,
+   0.656,
+   0.526,
+   0.507,
+   0.808,
+   0.787,
+   0.509,
+   0.598,
+   0.52,
+   0.575,
+   0.585,
+   0.373,
+   0.692,
+   0.465,
+   0.697,
+   0.652,
+   0.53,
+   0.606,
+   0.684,
+   0.584,
+   0.712,
+   0.671,
+   0.697,
+   0.545,
+   0.636,
+   0.832,
+   0.466,
+   0.55,
+   0.81,
+   0.636,
+   0.779,
+   0.542,
+   0.431,
+   0.747,
+   1.0,
+   0.806,
+   0.869,
+   0.816,
+   0.794,
+   0.724,
+   0.811,
+   0.583,
+   0.434,
+   0.166
+  ],
+  "795e4744a1bc_d": 30.02,
+  "d97bdd07c187": [
+   0.107,
+   0.368,
+   0.475,
+   0.299,
+   0.163,
+   0.231,
+   0.591,
+   0.577,
+   0.518,
+   0.466,
+   0.642,
+   0.589,
+   0.351,
+   0.292,
+   0.263,
+   0.255,
+   0.241,
+   0.608,
+   0.458,
+   0.444,
+   0.565,
+   0.439,
+   0.451,
+   0.534,
+   0.385,
+   0.324,
+   0.254,
+   0.938,
+   0.531,
+   0.822,
+   0.71,
+   0.524,
+   0.836,
+   0.601,
+   0.732,
+   0.358,
+   0.603,
+   1.0,
+   0.629,
+   0.686,
+   0.601,
+   0.58,
+   0.774,
+   0.655,
+   0.409,
+   0.347,
+   0.235,
+   0.189,
+   0.488,
+   0.865,
+   0.942,
+   0.84,
+   0.9,
+   0.807,
+   0.364,
+   0.199
+  ],
+  "d97bdd07c187_d": 30.02,
+  "30c57d5a35f2": [
+   0.0,
+   0.116,
+   0.872,
+   0.419,
+   0.324,
+   0.351,
+   0.445,
+   0.422,
+   0.33,
+   0.102,
+   0.339,
+   0.231,
+   0.197,
+   0.399,
+   0.643,
+   0.315,
+   0.3,
+   0.299,
+   0.256,
+   0.28,
+   0.332,
+   0.443,
+   0.389,
+   0.334,
+   0.721,
+   0.373,
+   0.058,
+   0.003,
+   0.0,
+   0.619,
+   0.656,
+   0.914,
+   1.0,
+   0.308,
+   0.034,
+   0.652,
+   0.717,
+   0.573,
+   0.336,
+   0.233,
+   0.02,
+   0.375,
+   0.464,
+   0.468,
+   0.442,
+   0.266,
+   0.229,
+   0.179,
+   0.371,
+   0.434,
+   0.2,
+   0.156,
+   0.003,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "30c57d5a35f2_d": 7.64,
+  "3cddd74e7d8a": [
+   0.0,
+   0.002,
+   1.0,
+   0.23,
+   0.622,
+   0.742,
+   0.455,
+   0.629,
+   0.465,
+   0.447,
+   0.328,
+   0.551,
+   0.381,
+   0.375,
+   0.554,
+   0.531,
+   0.11,
+   0.006,
+   0.0,
+   0.0,
+   0.0,
+   0.788,
+   0.529,
+   0.524,
+   0.441,
+   0.634,
+   0.724,
+   0.169,
+   0.533,
+   0.498,
+   0.379,
+   0.182,
+   0.008,
+   0.74,
+   0.917,
+   0.611,
+   0.615,
+   0.492,
+   0.081,
+   0.493,
+   0.437,
+   0.617,
+   0.289,
+   0.619,
+   0.553,
+   0.524,
+   0.308,
+   0.389,
+   0.461,
+   0.297,
+   0.135,
+   0.009,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "3cddd74e7d8a_d": 8.28,
+  "9a6b862b9404": [
+   0.0,
+   0.013,
+   1.0,
+   0.748,
+   0.642,
+   0.58,
+   0.654,
+   0.656,
+   0.257,
+   0.721,
+   0.503,
+   0.409,
+   0.082,
+   0.002,
+   0.627,
+   0.748,
+   0.479,
+   0.636,
+   0.441,
+   0.454,
+   0.625,
+   0.486,
+   0.512,
+   0.477,
+   0.647,
+   0.542,
+   0.333,
+   0.125,
+   0.0,
+   0.062,
+   0.808,
+   0.63,
+   0.552,
+   0.627,
+   0.281,
+   0.089,
+   0.002,
+   0.0,
+   0.799,
+   0.705,
+   0.852,
+   0.545,
+   0.819,
+   0.566,
+   0.525,
+   0.62,
+   0.684,
+   0.421,
+   0.532,
+   0.344,
+   0.52,
+   0.173,
+   0.061,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "9a6b862b9404_d": 8.32
+ }
+}</script>
+<script src="js/site.js" defer></script>
+</body>
+</html>

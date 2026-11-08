@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# This site loads nothing from any other host, and collects nothing.
