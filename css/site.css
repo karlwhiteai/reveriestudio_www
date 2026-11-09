@@ -173,10 +173,13 @@
   --glow-inset-bottom: 18%;
   --glow-opacity: 0.36;
   --glow-mask: radial-gradient(54% 53% at 50% 50%, black 88%, transparent);
-  --cta-glow-inset: 5%;
-  --cta-glow-inset-side: 13.5%;
+  /* The closing glow fills its section and is masked by a horizontal and a
+     vertical fade: their product is the soft rectangle the mock's 90px blur
+     of a box made, matched to the mock's brightness at 375, 1000 and 1440px. */
   --cta-glow-opacity: 0.21;
-  --cta-glow-mask: radial-gradient(50% 50% at 50% 50%, black 24%, transparent);
+  --cta-glow-fade-x: linear-gradient(to right, rgb(0 0 0 / 0) 9%, rgb(0 0 0 / .12) 17%, rgb(0 0 0 / .5) 25%, rgb(0 0 0 / .9) 33%, #000 42%, #000 58%, rgb(0 0 0 / .9) 67%, rgb(0 0 0 / .5) 75%, rgb(0 0 0 / .12) 83%, rgb(0 0 0 / 0) 91%);
+  --cta-glow-fade-x-small: linear-gradient(to right, rgb(0 0 0 / .2), rgb(0 0 0 / .45) 12.5%, rgb(0 0 0 / .72) 25%, rgb(0 0 0 / .95) 37.5%, #000 50%, rgb(0 0 0 / .95) 62.5%, rgb(0 0 0 / .72) 75%, rgb(0 0 0 / .45) 87.5%, rgb(0 0 0 / .2));
+  --cta-glow-fade-y: linear-gradient(to bottom, rgb(0 0 0 / .2), rgb(0 0 0 / .45) 12.5%, rgb(0 0 0 / .72) 25%, rgb(0 0 0 / .95) 37.5%, #000 50%, rgb(0 0 0 / .95) 62.5%, rgb(0 0 0 / .72) 75%, rgb(0 0 0 / .45) 87.5%, rgb(0 0 0 / .2));
   --stage-max: 1040px;
   --hub-max: 1000px;
   --tile-radius: var(--radius-lg);
@@ -450,7 +453,7 @@ img.logo.mono { filter: brightness(0) invert(0.94); }
 /* CTA + footer */
 .cta { margin-top: var(--section-gap); border-top: 1px solid var(--line); padding: var(--cta-pad) 0; text-align: center; display: grid; justify-items: center; gap: var(--space-4); position: relative; overflow: hidden; }
 .cta h2 { font-size: var(--type-section); }
-.cta .glow { inset: var(--cta-glow-inset) var(--cta-glow-inset-side); opacity: var(--cta-glow-opacity); -webkit-mask-image: var(--cta-glow-mask); mask-image: var(--cta-glow-mask); }
+.cta .glow { inset: 0; opacity: var(--cta-glow-opacity); -webkit-mask-image: var(--cta-glow-fade-x), var(--cta-glow-fade-y); mask-image: var(--cta-glow-fade-x), var(--cta-glow-fade-y); -webkit-mask-composite: source-in; mask-composite: intersect; }
 .cta-stack { position: relative; display: grid; gap: var(--space-4); justify-items: center; }
 .cta .req { font-size: var(--type-body); color: var(--text-muted); }
 .cta .req em { font-style: italic; }
@@ -474,7 +477,7 @@ footer .credits { color: var(--text-muted); }
 }
 @media (max-width: 760px) {
   /* the mock's 90px blur is an absolute distance, so its reach grows as the page narrows */
-  :root { --gutter: var(--gutter-small); --section-gap: var(--section-gap-small); --glow-opacity: 0.19; --cta-glow-inset-side: 5%; --cta-glow-opacity: 0.17; }
+  :root { --gutter: var(--gutter-small); --section-gap: var(--section-gap-small); --glow-opacity: 0.19; --cta-glow-fade-x: var(--cta-glow-fade-x-small); --cta-glow-opacity: 0.15; }
   .listen { border-radius: var(--radius-lg); }
   .listen .player { width: auto; }
   .listen .wave { display: none; }
