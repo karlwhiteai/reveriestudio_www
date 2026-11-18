@@ -60,12 +60,30 @@
     btn.innerHTML = '<svg class="icon"><use href="#i-play"/></svg>';
     const wave = document.createElement('div');
     wave.className = 'wave';
-    const bars = peaks.map((v) => {
-      const bar = document.createElement('i');
-      bar.style.height = Math.max(8, Math.round(v * 100)) + '%';
-      wave.appendChild(bar);
-      return bar;
-    });
+    /* Draw only as many bars as fit at --wave-bar-min wide, each the loudest
+       of the peaks it covers, so a narrow wave never squeezes bars to nothing. */
+    let bars = [];
+    let drawn = 0;
+    const draw = () => {
+      const w = wave.clientWidth;
+      if (!w || !peaks.length) return;
+      const cs = getComputedStyle(wave);
+      const gap = parseFloat(cs.columnGap) || 0;
+      const min = parseFloat(cs.getPropertyValue('--wave-bar-min')) || 1;
+      const n = Math.max(1, Math.min(peaks.length, Math.floor((w + gap) / (min + gap))));
+      if (n === drawn) return;
+      drawn = n;
+      wave.textContent = '';
+      bars = Array.from({ length: n }, (_, k) => {
+        const from = Math.floor((k * peaks.length) / n);
+        const to = Math.max(from + 1, Math.floor(((k + 1) * peaks.length) / n));
+        const bar = document.createElement('i');
+        bar.style.height = Math.max(8, Math.round(Math.max(...peaks.slice(from, to)) * 100)) + '%';
+        wave.appendChild(bar);
+        return bar;
+      });
+      paint();
+    };
     const time = document.createElement('span');
     time.className = 'time';
     time.textContent = fmt(total);
@@ -81,6 +99,7 @@
       btn.setAttribute('aria-label', (on ? 'Pause ' : 'Play ') + label);
       btn.innerHTML = '<svg class="icon"><use href="#i-' + (on ? 'pause' : 'play') + '"/></svg>';
     };
+    new ResizeObserver(draw).observe(wave);
     audio.addEventListener('timeupdate', paint);
     audio.addEventListener('loadedmetadata', () => {
       if (Number.isFinite(audio.duration) && audio.duration > 0) { total = audio.duration; paint(); }
