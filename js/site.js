@@ -40,15 +40,18 @@
     });
   };
 
-  /* One sound plays at a time across the page. */
-  let currentAudio = null;
+  /* One sound plays at a time across the page, except clips that share a
+     group (a story's song and narration), which may play together. */
+  const playing = new Set();
+  const DUCK = 0.35; /* a group's music volume while its narration speaks */
 
-  function makePlayer(host, id, label) {
+  function makePlayer(host, id, label, group) {
     const peaks = PEAKS[id] || [];
     let total = PEAKS[id + '_d'] || 0;
     const audio = new Audio();
     audio.preload = 'none';
     audio.src = ITEMS[id].files.audio;
+    if (group) audio.dataset.group = group;
     host.textContent = '';
     host.classList.add('player');
 
@@ -104,20 +107,19 @@
     audio.addEventListener('loadedmetadata', () => {
       if (Number.isFinite(audio.duration) && audio.duration > 0) { total = audio.duration; paint(); }
     });
-    audio.addEventListener('play', () => set(true));
-    audio.addEventListener('pause', () => set(false));
+    audio.addEventListener('play', () => {
+      playing.forEach((a) => { if (!group || a.dataset.group !== group) a.pause(); });
+      playing.add(audio);
+      set(true);
+    });
+    audio.addEventListener('pause', () => { playing.delete(audio); set(false); });
     audio.addEventListener('ended', () => { audio.currentTime = 0; paint(); });
     btn.addEventListener('click', () => {
-      if (audio.paused) {
-        if (currentAudio && currentAudio !== audio) currentAudio.pause();
-        currentAudio = audio;
-        audio.play().catch(() => {});
-      } else audio.pause();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
     });
     wave.addEventListener('click', (e) => {
       const r = wave.getBoundingClientRect();
-      if (currentAudio && currentAudio !== audio) currentAudio.pause();
-      currentAudio = audio;
       audio.currentTime = ((e.clientX - r.left) / r.width) * (audio.duration || total || 0);
       audio.play().catch(() => {});
     });
@@ -174,7 +176,7 @@
   (() => {
     const chips = $('#storyChips'), pic = $('#storyPicture'), vid = $('#storyVid'),
       side = $('#storySide'), sw = $('#mediaSwitch'), meta = $('#mediaMeta');
-    let mode = 'image', story = null;
+    let mode = 'image', story = null, sounds = [];
 
     function setMode(m) {
       mode = m === 'video' && story.video ? 'video' : 'image';
@@ -228,8 +230,12 @@
       return el;
     }
 
-    function pick(n) {
+    /* A click on a story plays its sound; the first story waits for one. */
+    function pick(n, play) {
+      sounds.forEach((a) => a.pause());
+      sounds = [];
       story = DATA.stories[n];
+      const group = 'story:' + story.name;
       [...chips.children].forEach((c, j) => c.setAttribute('aria-pressed', String(j === n)));
       const image = ITEMS[story.image];
       pic.textContent = '';
@@ -247,13 +253,20 @@
       if (story.song) {
         const song = ITEMS[story.song];
         const pl = document.createElement('div');
-        makePlayer(pl, story.song, song.short);
+        sounds.push(makePlayer(pl, story.song, song.short, group));
         side.appendChild(panel('Song · Vibe · made in ' + dur(secs(story.song)), 'var(--mark-vibe)', song.short, song.prompt, pl));
       }
       if (story.narration) {
         const vo = ITEMS[story.narration];
         const pl = document.createElement('div');
-        makePlayer(pl, story.narration, 'the narration');
+        const voice = makePlayer(pl, story.narration, 'the narration', group);
+        if (sounds.length) {
+          const music = sounds[0];
+          const duck = (on) => () => { music.volume = on ? DUCK : 1; };
+          voice.addEventListener('play', duck(true));
+          voice.addEventListener('pause', duck(false));
+        }
+        sounds.push(voice);
         const el = panel('Narration · Echo · made in ' + dur(secs(story.narration)), 'var(--mark-echo)', null, null, pl);
         const quote = document.createElement('p');
         quote.className = 'prompt open';
@@ -262,6 +275,7 @@
         side.appendChild(el);
       }
       setMode(story.video ? 'video' : 'image');
+      if (play) sounds.forEach((a) => a.play().catch(() => {}));
     }
 
     DATA.stories.forEach((st, j) => {
@@ -269,7 +283,7 @@
       b.type = 'button';
       b.className = 'chip';
       b.textContent = st.name;
-      b.addEventListener('click', () => pick(j));
+      b.addEventListener('click', () => pick(j, true));
       chips.appendChild(b);
     });
     sw.addEventListener('click', (e) => {
