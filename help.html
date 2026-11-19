@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help: Reverie Studio</title>
+<meta name="description" content="Short answers for Reverie Studio: models and your Mac, speech, music, images, video, your Library, and what to do when something goes wrong.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#121214">
+<link rel="canonical" href="https://reveriestudio.app/help.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="css/tokens.css?v=1.3.0">
+<link rel="stylesheet" href="css/site.css?v=1.3.0">
+<link rel="stylesheet" href="css/help.css?v=1.3.0">
+</head>
+<body>
+<div class="help">
+<header class="nav">
+<div class="wrap">
+<a class="brand" href="index.html"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M2 12c2.5-5 5-5 7.5 0s5 5 7.5 0 3.5-3.5 5-2"/></svg>Reverie Studio</a>
+<nav aria-label="Site">
+<ul>
+<li><a href="index.html#examples">Examples</a></li>
+<li><a href="index.html#features">Features</a></li>
+<li><a href="index.html#private">Private</a></li>
+<li><a href="index.html#mac">Your Mac</a></li>
+<li><a href="index.html#connections">Connections</a></li>
+</ul>
+</nav>
+<a class="btn primary sm" href="mailto:hello@reveriestudio.app">Get notified</a>
+</div>
+</header>
+<main class="help-main" id="top">
+<div class="help-hero">
+<div class="wrap">
+<p class="eyebrow">Help</p>
+<h1>How can we help?</h1>
+<p class="lead">Short answers for Reverie Studio, with the steps to take. Type a few words, or pick a topic.</p>
+<div class="hsearch js-only">
+<label class="visually-hidden" for="help-q">Search help</label>
+<div class="hfield">
+<svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+<input id="help-q" type="search" role="combobox" aria-autocomplete="list" aria-controls="help-results" aria-expanded="false" autocomplete="off" spellcheck="false" maxlength="200" placeholder="Search help">
+<kbd class="kbd" title="Press / to search">/</kbd>
+<button type="button" class="hclear" aria-label="Clear search" hidden><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+</div>
+<div class="hmenu" hidden>
+<div class="none" hidden><b>Nothing matches “<span class="none-q"></span>”</b><span>Try other words, or one of these.</span></div>
+<!-- [html-validate-disable-next prefer-native-element: the combobox pattern the brief asks for; a select cannot search] -->
+<ul id="help-results" role="listbox" aria-label="Answers"></ul>
+<div class="hfoot"><span class="count"></span><span class="contact-line" hidden>Still stuck? Write to <a href="mailto:hello@reveriestudio.app">hello@reveriestudio.app</a></span><span class="keys"><span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> move</span><span><kbd class="kbd">↵</kbd> open</span><span><kbd class="kbd">esc</kbd> clear</span></span></div>
+</div>
+</div>
+<p class="visually-hidden" aria-live="polite" id="help-live"></p>
+</div>
+</div>
+<div class="wrap">
+<nav class="topics-nav" aria-label="All topics">
+<details class="topics" open>
+<summary>All topics<svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+<div class="topic-grid">
+<div class="topic"><p class="name"><a href="#getting-started">Getting started</a></p><ul><li><a href="#what-is-reverie">What is Reverie Studio?</a></li><li><a href="#system-requirements">Which Macs can run it?</a></li><li><a href="#install">Install it and open it the first time</a></li><li><a href="#first-creation">Make your first thing in five minutes</a></li><li><a href="#privacy">What stays on my Mac?</a></li></ul></div>
+<div class="topic"><p class="name"><a href="#models-and-your-mac">Models and your Mac</a></p><ul><li><a href="#download-models">Download a model</a></li><li><a href="#needs-memory">Why does a model say it needs 16 GB of memory?</a></li><li><a href="#model-not-listed">Why isn’t a model I’ve heard of in the list?</a></li><li><a href="#grades">What do Lean, Standard, High, Higher and Best mean?</a></li><li><a href="#optional-models">Optional models and their licenses</a></li><li><a href="#tight-fit">“This will use nearly all of this Mac’s memory”</a></li><li><a href="#disk-space">How much disk space do models take?</a></li><li><a href="#your-mac">What does Your Mac on Home show?</a></li></ul></div>
+<div class="topic"><p class="name"><a href="#speech-and-voices">Speech and voices</a></p><ul><li><a href="#text-to-speech">Turn text into speech</a></li><li><a href="#clone-voice">Clone your own voice</a></li><li><a href="#tuned-voices">What is a professional clone?</a></li><li><a href="#pronunciation">Help with names and unusual words</a></li><li><a href="#transcribe">Turn a recording into text</a></li></ul></div>
+<div class="topic"><p class="name"><a href="#music">Music</a></p><ul><li><a href="#make-a-song">Make a song</a></li><li><a href="#write-lyrics">Write lyrics with verses and choruses</a></li><li><a href="#takes">What are takes?</a></li><li><a href="#music-models">Which music model should I use?</a></li></ul></div>
+<div class="topic"><p class="name"><a href="#images">Images</a></p><ul><li><a href="#make-an-image">Make an image</a></li><li><a href="#edit-an-image">Edit an image with words</a></li><li><a href="#sharpen">Sharpen or enlarge an image or video</a></li></ul></div>
+<div class="topic"><p class="name"><a href="#video">Video</a></p><ul><li><a href="#make-a-video">Make a video</a></li><li><a href="#image-to-video">Bring an image to life</a></li><li><a href="#audio-to-video">Make a video to a track</a></li><li><a href="#video-memory">Why are some video lengths missing or marked with a warning?</a></li></ul></div>
+<div class="topic"><p class="name"><a href="#library-and-projects">Library and projects</a></p><ul><li><a href="#library">Find something you made</a></li><li><a href="#projects">Group creations into projects</a></li><li><a href="#find-files">Where are my files on my Mac?</a></li><li><a href="#export-share">Save or share a creation outside the app</a></li><li><a href="#delete">Delete a creation</a></li></ul></div>
+<div class="topic"><p class="name"><a href="#using-what-you-make">Using what you make</a></p><ul><li><a href="#commercial-use">Can I use what I make commercially?</a></li><li><a href="#watermark">Why do my images and videos have a mark?</a></li><li><a href="#responsible-use">Using voices and likenesses responsibly</a></li></ul></div>
+<div class="topic"><p class="name"><a href="#troubleshooting">Troubleshooting</a></p><ul><li><a href="#app-wont-open">The app doesn’t open, or opens to a tiny or blank window</a></li><li><a href="#window-closed">I closed the window</a></li><li><a href="#job-failed">A job failed</a></li><li><a href="#out-of-memory">“Ran out of memory”</a></li><li><a href="#silent-or-blank">A song is silent, or an image is blank</a></li><li><a href="#slow">Why is it slow?</a></li><li><a href="#download-problems">A download stalls or fails</a></li><li><a href="#stuck-job">A job seems stuck</a></li><li><a href="#fans-heat">My Mac gets warm or loud</a></li><li><a href="#logs">Send us the logs</a></li><li><a href="#reset">Start fresh without losing what you made</a></li></ul></div>
+<div class="topic"><p class="name"><a href="#account-and-app">The app</a></p><ul><li><a href="#uninstall">Uninstall Reverie Studio</a></li><li><a href="#contact">Contact us</a></li></ul></div>
+</div>
+</details>
+</nav>
+</div>
+<div class="wrap help-body">
+<aside class="side">
+<nav aria-label="Help sections">
+<p class="eyebrow">Topics</p>
+<a href="#getting-started">Getting started</a>
+<a href="#models-and-your-mac">Models and your Mac</a>
+<a href="#speech-and-voices">Speech and voices</a>
+<a href="#music">Music</a>
+<a href="#images">Images</a>
+<a href="#video">Video</a>
+<a href="#library-and-projects">Library and projects</a>
+<a href="#using-what-you-make">Using what you make</a>
+<a href="#troubleshooting">Troubleshooting</a>
+<a href="#account-and-app">The app</a>
+</nav>
+</aside>
+<div class="help-content">
+<section class="hsec" id="getting-started" aria-labelledby="h-getting-started">
+<h2 id="h-getting-started">Getting started</h2>
+<div class="qa-list">
+<article class="qa" id="what-is-reverie" data-keywords="about overview what does it do app local offline cloud internet ai">
+<details>
+<summary><h3>What is Reverie Studio?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Reverie Studio is a Mac app that makes speech, music, images and video. Everything runs on your Mac: the models, the work and the files it makes.</p>
+<p>Type what you want in <strong>Create</strong> on <strong>Home</strong>, or open a tool from the sidebar. What you make lands in your <strong>Library</strong>.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="system-requirements" data-keywords="requirements minimum intel m1 m2 m3 m4 macos version compatible older mac memory disk space storage ram">
+<details>
+<summary><h3>Which Macs can run it?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ul>
+<li><strong>A Mac with Apple silicon</strong> (M1 or later). Intel Macs can’t run it.</li>
+<li><strong>macOS 26 or later.</strong></li>
+<li><strong>16 GB of memory or more.</strong> 16 GB makes speech, music, images and short videos. More memory adds more models, higher grades and longer videos.</li>
+<li><strong>Disk space for models.</strong> Most take a few GB each; video takes about 30 to 45 GB. Leave room for what you make too.</li>
+</ul>
+<p>To see your Mac’s memory, choose <strong>Apple menu ▸ About This Mac</strong>.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="install" data-keywords="install setup download first launch start open applications getting started">
+<details>
+<summary><h3>Install it and open it the first time</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Move <strong>Reverie Studio</strong> to your Applications folder and open it.</li>
+<li>Open <strong>Settings ▸ Models</strong> and download the three speech models it suggests: <strong>Spark</strong> and <strong>Prose</strong> for speech, <strong>Cue</strong> for transcription, about 6.4 GB together.</li>
+<li>Download music, image and video models there too, when you want them.</li>
+</ol>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="first-creation" data-keywords="tour start begin tutorial first create how to use quick start">
+<details>
+<summary><h3>Make your first thing in five minutes</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open <strong>Home</strong>.</li>
+<li>In <strong>Create</strong>, type what you want: a sentence to speak, a description of a song, or a picture you have in mind.</li>
+<li>Choose <strong>Speech</strong>, <strong>Music</strong>, <strong>Image</strong> or <strong>Video</strong>, then <strong>Make</strong>.</li>
+<li>Watch it in <strong>Activity</strong>. Speech takes seconds, a song a few minutes, a video longer.</li>
+<li>Find it in <strong>Library</strong>: play it, favorite it, or add it to a project.</li>
+</ol>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="privacy" data-keywords="privacy private data online upload send cloud account sign in login internet offline tracking analytics">
+<details>
+<summary><h3>What stays on my Mac?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Everything you type, record and make stays on your Mac. Reverie Studio uses the internet only to download the models you choose.</p>
+<p>You don’t need an account to use it. Two optional image models need a free Hugging Face account to download (see <a href="#optional-models">Optional models</a>). The full detail is in the <a href="privacy.html">Privacy Policy</a>.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<section class="hsec" id="models-and-your-mac" aria-labelledby="h-models-and-your-mac">
+<h2 id="h-models-and-your-mac">Models and your Mac</h2>
+<div class="qa-list">
+<article class="qa" id="download-models" data-keywords="download model install add get progress pause resume settings models">
+<details>
+<summary><h3>Download a model</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open <strong>Settings ▸ Models</strong>.</li>
+<li>Choose <strong>Download</strong> beside a model. Its progress shows there.</li>
+<li>Carry on working, or leave the page: the download keeps going. Use <strong>Pause</strong> and <strong>Resume</strong> to stop it for a while.</li>
+</ol>
+<p>The list only offers models this Mac can run.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="needs-memory" data-keywords="ram free memory needs requires not enough unified 16 gb 32 gb 64 gb 96 gb upgrade close apps disk">
+<details>
+<summary><h3>Why does a model say it needs 16 GB of memory?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>“Needs a Mac with 16 GB of memory” means the memory built into your Mac, its total. It isn’t free memory and it isn’t disk space, so closing apps or emptying the Trash won’t change it.</p>
+<p>A model that needs more memory than your Mac has isn’t offered. To see your Mac’s memory, choose <strong>Apple menu ▸ About This Mac</strong>.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="model-not-listed" data-keywords="missing model not listed where is hidden not available can’t find">
+<details>
+<summary><h3>Why isn’t a model I’ve heard of in the list?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>One of two reasons:</p>
+<ul>
+<li>It needs more memory than this Mac has, so it isn’t offered here.</li>
+<li>Reverie Studio doesn’t offer it yet.</li>
+</ul>
+<p>Optional models are in the list too, marked <strong>Optional</strong> (see <a href="#optional-models">Optional models</a>).</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="grades" data-keywords="grades quality lean standard high higher best default better worse which">
+<details>
+<summary><h3>What do Lean, Standard, High, Higher and Best mean?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Each tool’s models are graded by the quality of what they make, from <strong>Lean</strong> through <strong>Standard</strong>, <strong>High</strong> and <strong>Higher</strong> to <strong>Best</strong>. Higher grades need more memory and take longer.</p>
+<p>Reverie Studio picks a good default for your Mac. Choose another grade when you want something faster or finer.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="optional-models" data-keywords="optional license licence accept terms hugging face token account gated flux 3 yue2 non-commercial">
+<details>
+<summary><h3>Optional models and their licenses</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Some models are optional. Each shows its license before you download it, and you accept it to go on. A few licenses limit what you can do with what you make: see <a href="#commercial-use">Can I use what I make commercially?</a></p>
+<p><strong>FLUX 3</strong> and <strong>FLUX.2 klein 9B</strong> also need a free Hugging Face account:</p>
+<ol>
+<li>On Hugging Face, open the model’s page and accept its terms there.</li>
+<li>Create an access token in your Hugging Face settings.</li>
+<li>In <strong>Settings ▸ Models</strong>, choose <strong>Download</strong> and paste it into <strong>Hugging Face token</strong>. It is used for this download only and isn’t saved.</li>
+</ol>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="tight-fit" data-keywords="warning tight fit nearly all memory slow swap close other apps">
+<details>
+<summary><h3>“This will use nearly all of this Mac’s memory”</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>The job fits, just, and may run slower than usual. Video lengths that fit this way say <strong>Tight fit</strong>.</p>
+<ol>
+<li>Quit apps you aren’t using, especially browsers with many tabs.</li>
+<li>Start the job and leave the Mac to it.</li>
+</ol>
+<p>For a faster run, choose a lower grade, a shorter length or one take.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="disk-space" data-keywords="disk space storage full gb remove model free up space settings storage delete">
+<details>
+<summary><h3>How much disk space do models take?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Most models take a few GB; video takes about 30 to 45 GB. <strong>Settings ▸ Storage</strong> shows what uses space.</p>
+<p>To remove a model, open <strong>Settings ▸ Models</strong> and choose <strong>Remove</strong> beside it. Your voices and creations stay, and you can download the model again later.</p>
+<p>Creations you delete wait in <strong>Settings ▸ Storage</strong> until you choose <strong>Delete permanently</strong>, so they still take space until then.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="your-mac" data-keywords="your mac panel home memory what can run capability">
+<details>
+<summary><h3>What does Your Mac on Home show?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p><strong>Your Mac</strong> on Home shows what this Mac can make: its memory, which kinds of creation it runs and at which grades, and what is running now.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<section class="hsec" id="speech-and-voices" aria-labelledby="h-speech-and-voices">
+<h2 id="h-speech-and-voices">Speech and voices</h2>
+<div class="qa-list">
+<article class="qa" id="text-to-speech" data-keywords="text to speech tts speak read aloud narration voice spark long text audiobook">
+<details>
+<summary><h3>Turn text into speech</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open <strong>Text to Speech</strong>.</li>
+<li>Type or paste your text and choose a voice.</li>
+<li>Start it. A long text takes longer; you can follow it in <strong>Activity</strong>.</li>
+</ol>
+<p><strong>Spark</strong> speaks with the built-in voices. <strong>Prose</strong> speaks with a voice you cloned. <strong>Evoke</strong> is optional: more expressive speech, and it needs a bigger Mac. For a voice of your own, see <a href="#clone-voice">Clone your own voice</a>.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="clone-voice" data-keywords="clone voice my voice record sample copy voice clones prose consent">
+<details>
+<summary><h3>Clone your own voice</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open <strong>Voice Clones</strong>.</li>
+<li>Choose a quick clone, then record 5 to 30 seconds of yourself, or upload a clip. 30 seconds gives the best result.</li>
+<li>It’s ready in seconds. Use it in <strong>Text to Speech</strong>.</li>
+</ol>
+<p>For the best result, record in a quiet room, one voice only, at your normal pace.</p>
+<p class="tip">Clone only your own voice, or a voice you have clear permission to use.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="tuned-voices" data-keywords="tuned voice trained voice fine tune professional clone better closer more recordings dataset training">
+<details>
+<summary><h3>What is a professional clone?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>A professional clone is trained on much more of your voice, so it sounds closer to you than a quick clone. In <strong>Voice Clones</strong>, record at least 10 minutes (30 minutes is best). Training takes a few hours.</p>
+<p>Training needs a Mac with at least 36 GB of memory; 36 GB trains it as a tight fit, and 48 GB or more is comfortable. Once trained, the voice speaks on Macs with 24 GB or more.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="pronunciation" data-keywords="pronunciation pronounce wrong mispronounce names words accent spelling phonetic">
+<details>
+<summary><h3>Help with names and unusual words</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Reverie Studio has no pronunciation list yet. Until it does, spell a word the way it sounds, for example “Nee-iv” for Niamh, and add a comma where you want a pause.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="transcribe" data-keywords="transcribe transcription speech to text subtitles captions dictation cue scribe audio file">
+<details>
+<summary><h3>Turn a recording into text</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open <strong>Transcribe</strong>.</li>
+<li>Drop in an audio or video file, or choose one: WAV, MP3, M4A, FLAC, Ogg, WebM, MP4, MOV or AVI, up to 256 MB. Transcribe works from files; it doesn’t record.</li>
+<li>When it’s done, download the text, or subtitles as SRT or VTT.</li>
+</ol>
+<p>Choose the engine: <strong>Cue</strong> is faster; <strong>Scribe</strong> (optional download) is the most accurate and adds punctuation.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<section class="hsec" id="music" aria-labelledby="h-music">
+<h2 id="h-music">Music</h2>
+<div class="qa-list">
+<article class="qa" id="make-a-song" data-keywords="song music create compose track genre style instruments mood instrumental lyrics length">
+<details>
+<summary><h3>Make a song</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open <strong>Create Music</strong>.</li>
+<li>Describe the style, the instruments and the mood: “warm acoustic folk, finger-picked guitar, gentle and hopeful”.</li>
+<li>Add lyrics, or choose instrumental.</li>
+<li>Choose a length, from 10 seconds to 10 minutes, or leave it on <strong>Auto</strong>. Then start it.</li>
+</ol>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="write-lyrics" data-keywords="lyrics verse chorus bridge tags structure sections intro outro words">
+<details>
+<summary><h3>Write lyrics with verses and choruses</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Start each part of the song with a tag in square brackets, on its own line. The lyrics box has a button for each:</p>
+<p><code>[Intro]</code> <code>[Verse]</code> <code>[Pre-Chorus]</code> <code>[Chorus]</code> <code>[Bridge]</code> <code>[Interlude]</code> <code>[Instrumental]</code> <code>[Outro]</code></p>
+<p>Short lines sing better than long ones.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="takes" data-keywords="takes versions variations several multiple one at a time slow wait queue">
+<details>
+<summary><h3>What are takes?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>A take is one version of your song. Ask for up to four to hear different results from one description, then keep the one you like.</p>
+<p>On a Mac with 16 GB of memory, takes run one after another, so several takes mean a longer wait.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="music-models" data-keywords="music model ace-step fast quality yue2 non-commercial which best">
+<details>
+<summary><h3>Which music model should I use?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ul>
+<li><strong>ACE-Step Fast</strong>: quick results, good for trying ideas.</li>
+<li><strong>ACE-Step Quality</strong>: slower, richer songs.</li>
+<li><strong>YuE2</strong> (optional): for personal, non-commercial use only. See <a href="#commercial-use">commercial use</a>.</li>
+</ul>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<section class="hsec" id="images" aria-labelledby="h-images">
+<h2 id="h-images">Images</h2>
+<div class="qa-list">
+<article class="qa" id="make-an-image" data-keywords="image picture photo text to image create image size shape aspect ratio square portrait landscape model z-image flux">
+<details>
+<summary><h3>Make an image</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open <strong>Create Image</strong>.</li>
+<li>Describe the picture: the subject, the setting, the light and the style.</li>
+<li>Choose a size, from square (1:1) to wide (21:9) or tall (9:16), and start it.</li>
+</ol>
+<p><strong>Z-Image Turbo</strong> is quick and photographic; <strong>FLUX.2 klein 4B</strong> follows long descriptions well. Optional models add more choice on bigger Macs.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="edit-an-image" data-keywords="edit image change picture modify instruction reference photo retouch remove background qwen klein">
+<details>
+<summary><h3>Edit an image with words</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open <strong>Edit Image</strong> and add the picture to change.</li>
+<li>Say what to change, in one instruction: “make it night”, “replace the red car with a bicycle”.</li>
+</ol>
+<p>One clear change at a time works best. Bigger Macs offer stronger editing models.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="sharpen" data-keywords="sharpen upscale enlarge resolution bigger higher resolution blurry detail">
+<details>
+<summary><h3>Sharpen or enlarge an image or video</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Before you start an image or video, set <strong>Sharpen</strong> to <strong>1.5x</strong>, <strong>2x</strong> or <strong>4x</strong>. The result comes out sharper and that many times larger. Leave it on <strong>Off</strong> to keep the size the model makes.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<section class="hsec" id="video" aria-labelledby="h-video">
+<h2 id="h-video">Video</h2>
+<div class="qa-list">
+<article class="qa" id="make-a-video" data-keywords="video clip create video text to video ltx length seconds how long time">
+<details>
+<summary><h3>Make a video</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open <strong>Create Video</strong>.</li>
+<li>Describe the scene and what moves in it.</li>
+<li>Choose a length, up to 15 seconds, and start it. The lengths offered depend on your Mac’s memory and the size you chose.</li>
+</ol>
+<p>Video is the heaviest job: expect minutes, not seconds, and longer on smaller Macs.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="image-to-video" data-keywords="image to video animate picture photo move motion still">
+<details>
+<summary><h3>Bring an image to life</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>In <strong>Create Video</strong>, add an image and describe how it should move: “the camera slowly pushes in, leaves drift past”. The video starts from your image.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="audio-to-video" data-keywords="audio to video music video song track sound drives lip beat">
+<details>
+<summary><h3>Make a video to a track</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>In <strong>Create Video</strong>, add a track (WAV, MP3, M4A or FLAC, up to 50 MB) and describe the scene. The video follows the audio, and its length follows the track, up to the longest length your Mac offers.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="video-memory" data-keywords="video length missing 15 seconds greyed out warning 16 gb small mac memory">
+<details>
+<summary><h3>Why are some video lengths missing or marked with a warning?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Longer and larger videos need more memory. On a Mac with 16 GB, videos are 5 or 10 seconds, and both say <strong>Tight fit</strong>: they will use nearly all of its memory. 15 seconds needs 24 GB or more.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<section class="hsec" id="library-and-projects" aria-labelledby="h-library-and-projects">
+<h2 id="h-library-and-projects">Library and projects</h2>
+<div class="qa-list">
+<article class="qa" id="library" data-keywords="library find search filter favorites favourites history old recent star">
+<details>
+<summary><h3>Find something you made</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p><strong>Library</strong> holds everything you make. Search it by the words you used and filter it by kind. Star the ones you like (<strong>Add to Favorites</strong>), then choose the <strong>Favorites</strong> filter to see only those.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="projects" data-keywords="projects group folder organize collection add upload">
+<details>
+<summary><h3>Group creations into projects</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>A project keeps related work together: a podcast’s voices and music, a video’s pictures. Create one in <strong>Projects</strong>, then add creations from your Library or upload your own files to it.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="find-files" data-keywords="files where saved location folder finder disk backup time machine copy">
+<details>
+<summary><h3>Where are my files on my Mac?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>To get a file you can use anywhere, open the creation and choose <strong>Download</strong> (see <a href="#export-share">Save or share</a>).</p>
+<p>Reverie Studio keeps its own copies in <code>~/Library/Application Support/Reverie Studio/</code>. Time Machine backs that folder up with the rest of your Mac.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="export-share" data-keywords="export save download share send file drag out mp3 wav png mp4">
+<details>
+<summary><h3>Save or share a creation outside the app</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Open the creation and choose <strong>Download</strong>, or choose <strong>Download</strong> from its ⋯ menu in the Library.</li>
+<li>Pick where to save it (Downloads is the default). Reverie Studio shows the file in Finder when it’s saved.</li>
+</ol>
+<p>From there, share it the way you share any file. Transcripts download as text (.txt) or subtitles (.srt, .vtt).</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="delete" data-keywords="delete remove trash bin recover undo get back">
+<details>
+<summary><h3>Delete a creation</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Open the creation’s ⋯ menu and choose <strong>Delete</strong>. Deleted images, videos and songs wait in <strong>Settings ▸ Storage</strong>, where <strong>Restore</strong> brings them back and <strong>Delete permanently</strong> removes them for good.</p>
+<p>Deleting a cloned voice removes its recording and training straight away; it can’t be restored.</p>
+<p>Speech and transcripts can’t be deleted from the app yet.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<section class="hsec" id="using-what-you-make" aria-labelledby="h-using-what-you-make">
+<h2 id="h-using-what-you-make">Using what you make</h2>
+<div class="qa-list">
+<article class="qa" id="commercial-use" data-keywords="commercial use sell business client monetize youtube license licence rights copyright own">
+<details>
+<summary><h3>Can I use what I make commercially?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>It depends on the model’s license. Every creation shows the model and license it was made with.</p>
+<ul>
+<li>Most models allow commercial use of what you make.</li>
+<li><strong>YuE2</strong> and <strong>FLUX.2 klein 9B</strong> are for non-commercial use only.</li>
+<li><strong>FLUX 3</strong> and <strong>LTX 2.5</strong> have their own terms; read them before you use their results in your work.</li>
+</ul>
+<p class="tip">This is a guide, not legal advice. See the <a href="credits.html">Credits and Licenses</a> and <a href="terms.html">Terms</a>.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="watermark" data-keywords="watermark mark logo label ai generated remove turn off hidden">
+<details>
+<summary><h3>Why do my images and videos have a mark?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Images and videos made in Reverie Studio carry a small, faint “Reverie Studio” mark in the bottom-right corner, so people can tell they are AI-made. Speech and music carry no mark.</p>
+<p>It can’t be turned off.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="responsible-use" data-keywords="consent permission likeness impersonate deepfake fake person real people voice rules responsible">
+<details>
+<summary><h3>Using voices and likenesses responsibly</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ul>
+<li>Clone or imitate a voice only with that person’s permission.</li>
+<li>Don’t use what you make to pass yourself off as someone else, or to mislead people about who said or did something.</li>
+<li>Follow each model’s license.</li>
+</ul>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<section class="hsec" id="troubleshooting" aria-labelledby="h-troubleshooting">
+<h2 id="h-troubleshooting">Troubleshooting</h2>
+<div class="qa-list">
+<article class="qa" id="app-wont-open" data-keywords="won’t open wont open doesn’t start crash tiny small window blank white black empty nothing launch">
+<details>
+<summary><h3>The app doesn’t open, or opens to a tiny or blank window</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Drag a corner of the window to make it bigger.</li>
+<li>Choose <strong>Window ▸ Reverie Studio</strong>.</li>
+<li>Quit Reverie Studio (<strong>Reverie Studio ▸ Quit</strong>) and open it again.</li>
+</ol>
+<p>Still stuck? <a href="#contact">Write to us</a> with your Mac model and what you see.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="window-closed" data-keywords="closed window gone disappeared where is it dock reopen">
+<details>
+<summary><h3>I closed the window</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Closing the window leaves Reverie Studio running, and your jobs carry on. Click its icon in the Dock, or choose <strong>Window ▸ Reverie Studio</strong>, to bring it back. Quitting stops everything it started.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="job-failed" data-keywords="failed error job didn’t work broke problem message retry">
+<details>
+<summary><h3>A job failed</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>The message says what went wrong and what to do. Usually:</p>
+<ol>
+<li>Try again.</li>
+<li>Try a smaller option: a lower grade, a shorter length or one take.</li>
+<li>If it fails the same way twice, <a href="#logs">send us the logs</a>.</li>
+</ol>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="out-of-memory" data-keywords="out of memory ran out ram crash killed not enough memory">
+<details>
+<summary><h3>“Ran out of memory”</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Quit other apps you aren’t using.</li>
+<li>Ask for one take instead of several.</li>
+<li>Choose a shorter video or a lower grade.</li>
+</ol>
+<p>Then try again. The failed job’s card links to <strong>Settings ▸ System</strong>, which shows what is using memory.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="silent-or-blank" data-keywords="silent no sound quiet empty blank black image white picture nothing broken">
+<details>
+<summary><h3>A song is silent, or an image is blank</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>That shouldn’t happen. Try once more with one take, then <a href="#contact">tell us</a> what you asked for and which model you used.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="slow" data-keywords="slow takes long forever speed faster performance first run loading">
+<details>
+<summary><h3>Why is it slow?</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ul>
+<li><strong>The first run of a model</strong> loads it and gets it ready; later runs are quicker.</li>
+<li><strong>Video is heavy.</strong> Minutes are normal.</li>
+<li><strong>Other apps use memory too.</strong> Quit the ones you don’t need.</li>
+</ul>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="download-problems" data-keywords="download stuck stalled failed slow internet disk full already running resume">
+<details>
+<summary><h3>A download stalls or fails</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ul>
+<li><strong>It stopped:</strong> check your connection, then start it again in <strong>Settings ▸ Models</strong>. It picks up where it left off.</li>
+<li><strong>Disk full:</strong> free space (see <a href="#disk-space">disk space</a>) and try again.</li>
+<li><strong>“Already running”:</strong> that model is downloading already; its progress is in <strong>Settings ▸ Models</strong>.</li>
+</ul>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="stuck-job" data-keywords="stuck frozen hung not moving progress zero cancel stop job">
+<details>
+<summary><h3>A job seems stuck</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Check <strong>Activity</strong> on Home, or <strong>Settings ▸ Jobs</strong>: a long job may still be moving.</li>
+<li>If nothing changes for a long while, cancel it there.</li>
+<li>If it won’t cancel, quit Reverie Studio and open it again.</li>
+</ol>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="fans-heat" data-keywords="hot warm heat fans loud noise temperature battery">
+<details>
+<summary><h3>My Mac gets warm or loud</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>That’s normal during long jobs, video above all: your Mac is doing the work itself. It cools down when the job ends. On a laptop, keep it plugged in for long jobs.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="logs" data-keywords="logs bug report diagnostics debug error details send">
+<details>
+<summary><h3>Send us the logs</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Open <strong>Settings ▸ Logs</strong> and copy what it shows, then send it to us with what you did and what happened. The logs hold no creations.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="reset" data-keywords="reset start over fresh reinstall clean broken settings preferences">
+<details>
+<summary><h3>Start fresh without losing what you made</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Uninstalling and installing again gives Reverie Studio a fresh start.</p>
+<ol>
+<li>Choose <strong>Reverie Studio ▸ Uninstall Reverie Studio…</strong></li>
+<li>Leave <strong>Also delete my models and creations</strong> unticked to keep what you made and the models you downloaded. Tick it to start completely fresh.</li>
+<li>Choose <strong>Move to Trash</strong>, then install Reverie Studio again.</li>
+</ol>
+<p>The app, its settings and its logs go to the Trash, so you can get them back until you empty it. With the box unticked, your creations and models stay where they are and are there when you reinstall.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<section class="hsec" id="account-and-app" aria-labelledby="h-account-and-app">
+<h2 id="h-account-and-app">The app</h2>
+<div class="qa-list">
+<article class="qa" id="uninstall" data-keywords="uninstall remove delete app trash clean up">
+<details>
+<summary><h3>Uninstall Reverie Studio</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<ol>
+<li>Choose <strong>Reverie Studio ▸ Uninstall Reverie Studio…</strong></li>
+<li>Tick <strong>Also delete my models and creations</strong> only if you want those gone too. It shows how much space they take.</li>
+<li>Choose <strong>Move to Trash</strong>.</li>
+</ol>
+<p>Nothing is deleted outright: it all goes to the Trash, which can give it back until you empty it. To keep your creations, leave the box unticked, or download the ones you want first.</p>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+<article class="qa" id="contact" data-keywords="contact email support help write us hello bug report">
+<details>
+<summary><h3>Contact us</h3><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary>
+<div class="ans">
+<p>Write to <a href="mailto:hello@reveriestudio.app">hello@reveriestudio.app</a>. So we can help quickly, include:</p>
+<ul>
+<li>your Mac model and its memory (<strong>Apple menu ▸ About This Mac</strong>),</li>
+<li>what you did and what happened,</li>
+<li>the app version, from <strong>Reverie Studio ▸ About</strong>.</li>
+</ul>
+<div class="tools"><button type="button" class="copy"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg>Copy link</button></div>
+</div>
+</details>
+</article>
+</div>
+</section>
+<!-- Reserved ids, no article yet (the app may link to them later): #updates #pricing -->
+<section class="hcontact" id="still-stuck" aria-labelledby="h-still-stuck">
+<h2 id="h-still-stuck">Still stuck?</h2>
+<p>Write to us and a person will answer. Tell us your Mac model and memory, what you did and what happened, and the app version from <strong>Reverie Studio ▸ About</strong>.</p>
+<div class="row"><a class="btn primary" href="mailto:hello@reveriestudio.app"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>hello@reveriestudio.app</a><a href="#logs">How to send the logs</a></div>
+</section>
+</div>
+</div>
+</main>
+<footer>
+<div class="wrap">
+<div class="cols">
+<span>&copy; 2026 Better Than Expected, LLC</span>
+<span>This site uses no cookies and no trackers. <a href="help.html" aria-current="page">Help</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="credits.html">Credits</a></span>
+</div>
+</div>
+</footer>
+</div>
+<script src="js/help.js?v=1.3.0" defer></script>
+</body>
+</html>
